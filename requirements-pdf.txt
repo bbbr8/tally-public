@@ -1,0 +1,2 @@
+# Optional; core execution has no third-party dependencies.
+PyMuPDF>=1.24,<2

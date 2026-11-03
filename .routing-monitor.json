@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "project_id": "tally-portable",
+  "entrypoints": ["tally.py", "tally_client.py", "verify_reference.py", "tally_selftest.py"],
+  "tests": ["tally_selftest.py", "verify_reference.py"],
+  "registries": ["SOURCE_MANIFEST.json"],
+  "docs": ["README.md", "AI_GUIDE.md"],
+  "checks": {"require_test_for_source": false}
+}

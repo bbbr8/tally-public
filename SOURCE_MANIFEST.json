@@ -1,0 +1,29 @@
+{
+  "version": "0.28-portable",
+  "files": {
+    "tally.py": "0f44880a73c16f7f75fc5c5f3236b2a52f5fb7ce19a2c88f60e48bd142c83aab",
+    "tally_accounting.py": "98d298ffa68137987259c676d7af270f21a21c30fdd09c8e1340c73c06b5f487",
+    "tally_applications.py": "cc7b96125590eead019c5b9e1b045b931f6e014af16211efffff299ef5d74ffe",
+    "tally_audit.py": "e5b0eb8063015b1d2c4ebb01e48dd5c04beb3e6e7c37f19c1a436861923ad8b6",
+    "tally_client.py": "d7c64956c24549fa16cfd718e9af9b178208b18c2b33eb59c32fb44bb2daeb59",
+    "tally_data.py": "9bdb16ffe5369db22f76b3b1b7811cbb358c007668f525a41e2b51811687768a",
+    "tally_docs.py": "bc90f276504f615719307e2f52d797b89b776a2203431b996b0aec59f082774b",
+    "tally_documents.py": "29367ae6a87b30dd4a682ee77e177709663b3087cbce935d0a7ce250ca1365ec",
+    "tally_exchange.py": "71211b96a6808a215b7dc27f12008ffab4fbc7bb7ae8fba0b94e4a6013df46a2",
+    "tally_experiments.py": "f851b9ebe384b021f9e5371776034d076b32caaa67e1cfcd5acbe4623b9f7197",
+    "tally_logic.py": "72c1d1acbb24d66a6978fb44db3bd76ae1f0f20e42f593e27c85f744c89ff71a",
+    "tally_math.py": "7c5cca835747f4c20b76864c9c1d3efc9fc13ea0fd4109f20f25d8856ede5be8",
+    "tally_native.py": "f09ed14707a939033ea87d44b981d4fb02a91c7a78b0938a650b30283bef173e",
+    "tally_obligations.py": "49bdeab5ec915faf21742c0a89b10be90da84d61823800135bc8aa41f6d9b5fe",
+    "tally_qledger.py": "50effc47dc60208387fef627d8e7001e457d4a7f859ed7b8a9affcb8b898b96d",
+    "tally_qsearch.py": "6c1e18b51b17f0a0ad873a3ed1c99b3b1348d0231cef05649d5497613a32a47a",
+    "tally_qsense.py": "367e754ce79dc3833d32390acb1e0aa56eec7069c73fa4915c8a193259562dab",
+    "tally_qtime.py": "0efd78b2e44f244595bde799cb289d85b56794aa1b50dbc56a69bb293a1a28c9",
+    "tally_quantum.py": "d0084bcb6ba0e06afe63f21b071498c528bb35fc43daf591c1242ad3fd6ab048",
+    "tally_qubit.py": "c009af2f74bf85de27b421368e5222db3a20ab8a6e4e32bbe173cef8351659a7",
+    "tally_reason.py": "af59464536f31850c2d286b8c6820030ed11ddb3a9fcc45a4ccae5964f6ce60c",
+    "tally_reconcile.py": "372a8055510239249b6c0ad3c39204eb1a4bda6cb7b78c0e74feeb834b93b270",
+    "tally_selftest.py": "9d53a4cae93e0983cdeb001c1cb2123506916000490318d6453f3bfc2327463a",
+    "tally_terms.py": "48977143fdb6b8dcd8fb27017c7fa3a41ff3a1574eb859a869b2e51d3f40e743"
+  }
+}
