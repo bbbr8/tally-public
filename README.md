@@ -29,7 +29,22 @@ Save as `example.tly`, then run `python tally.py run example.tly --json`. All ex
 
 ## AI integration
 
+`python tally_candidates.py examples/candidates.json` evaluates model-proposed
+Tally programs against exact expected values and source IDs. Each test starts a
+fresh session; failures return concrete counterexamples. Use tagged `exact_value`
+objects for expectations. Candidate/test/runtime hashes make the evaluation
+replayable. File adapters are unavailable and imports are rejected in this profile.
+Run trusted local candidates: the step budget is not an operating-system sandbox
+or a bound on every built-in's allocation. No model is called implicitly.
+
 Read `AI_GUIDE.md`. `tally.py serve` accepts JSON-lines requests. `describe --json` exposes the language reference. `tally_client.py` provides the Python client.
+
+`eval` and expression results from session `eval`/`exec` also include `exact_value`.
+Numbers use `{"type":"number","decimal":"0.1234567890123456789"}` and money uses
+`{"type":"money","cents":"1234"}`. Containers preserve these typed values recursively.
+Use this field for calculations in another tool: the compatible legacy `value` field
+can round fractional numbers through a JSON float. The new transport preserves the
+runtime result; arithmetic still uses the interpreter's configured Decimal precision.
 
 ## Source configuration
 
@@ -40,3 +55,7 @@ Private-store discovery is disabled by default (`stores()` returns an empty list
 The Mac export passed eight portable self-checks and 221 executable reference examples. `VALIDATION.json` records those results. This portable check set replaces the original environment-specific selftest; it is not the complete upstream regression suite. Run `python verify_reference.py` to repeat reference checks. Windows/Mac launcher integration and optional PDF installation are separate from interpreter checks.
 
 The export excludes private evaluation scripts, local datasets, experiment histories and the original Git history. Source examples and defaults were sanitized on the source machine before transfer. `SOURCE_MANIFEST.json` fingerprints the interpreter modules.
+
+## Evaluation hardening
+
+Candidate `max_steps` now covers setup plus the expression together, with fresh state for every test. Each check records consumed `steps`, and `budget_scope` identifies the accounting rule. This bounds language steps; built-in allocation and wall time still need an external process limit for untrusted programs.

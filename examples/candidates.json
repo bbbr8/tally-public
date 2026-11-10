@@ -1,0 +1,27 @@
+{
+  "candidates": [
+    {
+      "id": "sum",
+      "source": "fn total(a,b) { return a + b }"
+    },
+    {
+      "id": "difference",
+      "source": "fn total(a,b) { return a - b }"
+    }
+  ],
+  "tests": [
+    {
+      "id": "money",
+      "expression": "total($1.25 from \"A\", $2.75 from \"B\")",
+      "expected": {
+        "type": "money",
+        "cents": "400"
+      },
+      "sources": [
+        "A",
+        "B"
+      ]
+    }
+  ],
+  "max_steps": 20000
+}

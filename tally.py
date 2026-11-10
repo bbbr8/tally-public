@@ -2716,6 +2716,32 @@ def wrap_deep(v, s):
     return wrap(v, s)
 
 
+def to_exact_json(x):
+    """Lossless typed values for tool consumers; legacy value remains compatible.
+
+    Decimal text preserves the runtime's actual result, including its configured
+    precision. This serialization does not change arithmetic precision.
+    """
+    x = strip(x)
+    if isinstance(x, Decimal):
+        return {"type": "number", "decimal": str(x)}
+    if isinstance(x, Money):
+        return {"type": "money", "cents": str(x.cents)}
+    if isinstance(x, _dt.date):
+        return {"type": "date", "iso": x.isoformat()}
+    if isinstance(x, list):
+        return [to_exact_json(v) for v in x]
+    if isinstance(x, dict):
+        return {str(k): to_exact_json(v) for k, v in x.items()}
+    if isinstance(x, Record):
+        return {f: to_exact_json(x.vals[f]) for f in x.type.fields}
+    if isinstance(x, Interval):
+        return {"low": to_exact_json(x.lo), "high": to_exact_json(x.hi)}
+    if hasattr(x, "tally_fields"):
+        return {k: to_exact_json(v) for k, v in x.tally_fields().items()}
+    return to_json(x)
+
+
 def to_json(x):
     x = strip(x)
     if isinstance(x, Decimal):
@@ -3447,7 +3473,7 @@ def eval_json(expr_src, prelude_path=None):
         if p.peek().kind != "eof":
             raise p.err("one expression expected (use `tally run` for statements)", p.peek())
         v = it.eval(e, it.globals)
-        res.update({"value": to_json(v), "display": show(v, True), "type": type_name(v), "sources": sorted(all_sources(v))})
+        res.update({"value": to_json(v), "exact_value": to_exact_json(v), "display": show(v, True), "type": type_name(v), "sources": sorted(all_sources(v))})
     except TallyError as ex:
         res["ok"], res["error"] = False, ex.to_map()
     except Thrown as t:
@@ -3603,7 +3629,7 @@ class Session:
                     last = self.it.exec(st, self.it.globals)
                 if stmts and stmts[-1].k == "expr":
                     v = last
-                    base.update({"value": to_json(v), "display": show(v, True), "type": type_name(v),
+                    base.update({"value": to_json(v), "exact_value": to_exact_json(v), "display": show(v, True), "type": type_name(v),
                                  "sources": sorted(all_sources(v))})
             elif op == "eval":
                 p = Parser(lex(req.get("code", ""), "<session>"), "<session>")
@@ -3612,7 +3638,7 @@ class Session:
                 if p.peek().kind != "eof":
                     raise p.err("one expression expected (use op exec for statements)", p.peek())
                 v = self.it.eval(e, self.it.globals)
-                base.update({"value": to_json(v), "display": show(v, True), "type": type_name(v),
+                base.update({"value": to_json(v), "exact_value": to_exact_json(v), "display": show(v, True), "type": type_name(v),
                              "sources": sorted(all_sources(v))})
             elif op == "impact":
                 v = _ta.impact(self.it, req.get("sources", []))

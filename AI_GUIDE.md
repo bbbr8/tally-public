@@ -1,5 +1,10 @@
 # Tally AI guide
 
+For candidate program evaluation use `python tally_candidates.py examples/candidates.json`.
+Supply exact tagged expected values and source IDs. Read the returned counterexamples,
+revise a candidate explicitly and rerun the frozen tests. Each case uses fresh state.
+This profile removes file adapters and rejects imports; use trusted local programs.
+
 Start with `README.md`, `AGENTS.md`, and `python tally.py describe --json`. Discover signatures from that reference before generating programs.
 
 Use `python tally.py check FILE --json`, `run FILE --json`, and `test FILE --json` for program workflows. `python tally.py eval EXPR --json` evaluates one expression. Branch on the returned `ok` and structured error fields, not just output text.
