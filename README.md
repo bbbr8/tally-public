@@ -59,3 +59,8 @@ The export excludes private evaluation scripts, local datasets, experiment histo
 ## Evaluation hardening
 
 Candidate `max_steps` now covers setup plus the expression together, with fresh state for every test. Each check records consumed `steps`, and `budget_scope` identifies the accounting rule. This bounds language steps; built-in allocation and wall time still need an external process limit for untrusted programs.
+
+## Local-only distribution
+
+Run the CLI or Python modules locally. No HTTP endpoint, hosting setup or provider
+account is required. [Public distribution policy](PUBLIC_DISTRIBUTION.md).

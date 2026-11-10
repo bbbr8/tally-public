@@ -13,14 +13,18 @@
     "verify_reference.py",
     "test_exact_json.py",
     "test_candidates.py",
-    "test_candidate_hardening.py"
+    "test_candidate_hardening.py",
+    "test_public_distribution.py",
+    "test_public_distribution.py"
   ],
   "registries": [
     "SOURCE_MANIFEST.json"
   ],
   "docs": [
     "README.md",
-    "AI_GUIDE.md"
+    "AI_GUIDE.md",
+    "PUBLIC_DISTRIBUTION.md",
+    "PUBLIC_DISTRIBUTION.md"
   ],
   "checks": {
     "require_test_for_source": false
