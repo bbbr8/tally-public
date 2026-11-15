@@ -64,3 +64,9 @@ Candidate `max_steps` now covers setup plus the expression together, with fresh 
 
 Run the CLI or Python modules locally. No HTTP endpoint, hosting setup or provider
 account is required. [Public distribution policy](PUBLIC_DISTRIBUTION.md).
+
+Candidate evaluation returns a `rejection_certificate`: the smallest subset of
+the supplied tests that still witnesses every candidate rejected by an executed
+check. The report lists which candidates each selected test rejects and records
+preflight failures separately. Ties use packet test order. The certificate
+summarizes this run; future candidate programs still need the full suite.

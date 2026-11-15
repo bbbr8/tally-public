@@ -26,12 +26,13 @@
     "tally_selftest.py": "9d53a4cae93e0983cdeb001c1cb2123506916000490318d6453f3bfc2327463a",
     "tally_terms.py": "48977143fdb6b8dcd8fb27017c7fa3a41ff3a1574eb859a869b2e51d3f40e743",
     "test_exact_json.py": "2dc72c4b57b45306b457d7f1ad077b9f703bea2936be91b6311c6cae3b404669",
-    "tally_candidates.py": "2c3ea7609f3fc3ec0d5411f57b85b3e999b3d5c5de449303d74d7699a21e1e3a",
-    "test_candidates.py": "a1a4d05cc0e232f4ee0e342c132c8e93328f56affc31a22a11cac4287ccabaea",
+    "tally_candidates.py": "3b0d7a756d2d9591e771c144a4c9c2b7860a1ee77bc7eecf18bb6d7d08a2bd1c",
+    "test_candidates.py": "8fb35aa8f05679ba156c070d01f0824bccb67702d3f747ec5a0f482bea77761d",
     "test_candidate_hardening.py": "c346b2e50408f8cd0eb89b068fa579c1a04ba1a2d2f093fc848d9166cb02429f",
     "PUBLIC_DISTRIBUTION.md": "aef28d00ac5121e17bd6e5f278f8ada0cf02fbc24d32a8def9e18ab775798764",
     "test_public_distribution.py": "dac81fbf6d9e962935f4418b7ffee9bc73ea5205651240e2015e1daf0690cdef",
-    ".gitignore": "49cf275655ef29cd24d7a5fa09ea7ae4eaf3e12528856fe298fabcce35d391cc"
+    ".gitignore": "49cf275655ef29cd24d7a5fa09ea7ae4eaf3e12528856fe298fabcce35d391cc",
+    "README.md": "9d6d0dff5382ed02cc8bd5ea3697c82e057723dcc4b9b43b09a1a802af9e9b87"
   },
   "public_profile": "local-only; no network service or provider adapter"
 }
