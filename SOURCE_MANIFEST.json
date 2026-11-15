@@ -1,7 +1,7 @@
 {
   "version": "0.28-portable",
   "files": {
-    "tally.py": "0feee2ce8166ba2d788d752bac835af2fd758b6d103b5d86eac1492cb3e9b2f8",
+    "tally.py": "deaec9247dc857d4d0cb4725b71b5ad99c0e0e3a8c87a8c402fcb465e4cfddc6",
     "tally_accounting.py": "98d298ffa68137987259c676d7af270f21a21c30fdd09c8e1340c73c06b5f487",
     "tally_applications.py": "cc7b96125590eead019c5b9e1b045b931f6e014af16211efffff299ef5d74ffe",
     "tally_audit.py": "e5b0eb8063015b1d2c4ebb01e48dd5c04beb3e6e7c37f19c1a436861923ad8b6",
@@ -25,7 +25,7 @@
     "tally_reconcile.py": "372a8055510239249b6c0ad3c39204eb1a4bda6cb7b78c0e74feeb834b93b270",
     "tally_selftest.py": "9d53a4cae93e0983cdeb001c1cb2123506916000490318d6453f3bfc2327463a",
     "tally_terms.py": "48977143fdb6b8dcd8fb27017c7fa3a41ff3a1574eb859a869b2e51d3f40e743",
-    "test_exact_json.py": "a0b69a3e966c7defc0a86255a997b5bdcce759996976474839524136b37f9ff8",
+    "test_exact_json.py": "2dc72c4b57b45306b457d7f1ad077b9f703bea2936be91b6311c6cae3b404669",
     "tally_candidates.py": "2c3ea7609f3fc3ec0d5411f57b85b3e999b3d5c5de449303d74d7699a21e1e3a",
     "test_candidates.py": "a1a4d05cc0e232f4ee0e342c132c8e93328f56affc31a22a11cac4287ccabaea",
     "test_candidate_hardening.py": "c346b2e50408f8cd0eb89b068fa579c1a04ba1a2d2f093fc848d9166cb02429f",
