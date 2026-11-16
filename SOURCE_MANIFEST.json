@@ -7,12 +7,12 @@
     "tally_audit.py": "e5b0eb8063015b1d2c4ebb01e48dd5c04beb3e6e7c37f19c1a436861923ad8b6",
     "tally_client.py": "d7c64956c24549fa16cfd718e9af9b178208b18c2b33eb59c32fb44bb2daeb59",
     "tally_data.py": "9bdb16ffe5369db22f76b3b1b7811cbb358c007668f525a41e2b51811687768a",
-    "tally_docs.py": "a350bb93921149a51760d70ae816f0b783a73623cdd674b883a93b9746f86e6d",
+    "tally_docs.py": "2d0e64edc533da1402e990c36bcbc42f3bb4eead902c1c01a40b8b37c6851109",
     "tally_documents.py": "29367ae6a87b30dd4a682ee77e177709663b3087cbce935d0a7ce250ca1365ec",
     "tally_exchange.py": "71211b96a6808a215b7dc27f12008ffab4fbc7bb7ae8fba0b94e4a6013df46a2",
     "tally_experiments.py": "f851b9ebe384b021f9e5371776034d076b32caaa67e1cfcd5acbe4623b9f7197",
     "tally_logic.py": "72c1d1acbb24d66a6978fb44db3bd76ae1f0f20e42f593e27c85f744c89ff71a",
-    "tally_math.py": "cd3fbc23e75947114214c3d97deec9ef1e0864e7eb40942324be1dc3558a57d7",
+    "tally_math.py": "2c3dc3f06c7bdfb18544cbd03405f0bd739fc7b0d5752f97a30a52804bba00d3",
     "tally_native.py": "f09ed14707a939033ea87d44b981d4fb02a91c7a78b0938a650b30283bef173e",
     "tally_obligations.py": "49bdeab5ec915faf21742c0a89b10be90da84d61823800135bc8aa41f6d9b5fe",
     "tally_qledger.py": "50effc47dc60208387fef627d8e7001e457d4a7f859ed7b8a9affcb8b898b96d",
@@ -25,14 +25,14 @@
     "tally_reconcile.py": "372a8055510239249b6c0ad3c39204eb1a4bda6cb7b78c0e74feeb834b93b270",
     "tally_selftest.py": "9d53a4cae93e0983cdeb001c1cb2123506916000490318d6453f3bfc2327463a",
     "tally_terms.py": "48977143fdb6b8dcd8fb27017c7fa3a41ff3a1574eb859a869b2e51d3f40e743",
-    "test_exact_json.py": "f67ed278f3b78d553ad0dd5ace95b2c08e44a6b2ffbefc31b4640a9336e195d1",
+    "test_exact_json.py": "c0d7817f260cf8147465cfc18fa6c829be3ee01a7c73600c21b01f1909105b33",
     "tally_candidates.py": "3b0d7a756d2d9591e771c144a4c9c2b7860a1ee77bc7eecf18bb6d7d08a2bd1c",
     "test_candidates.py": "8fb35aa8f05679ba156c070d01f0824bccb67702d3f747ec5a0f482bea77761d",
     "test_candidate_hardening.py": "c346b2e50408f8cd0eb89b068fa579c1a04ba1a2d2f093fc848d9166cb02429f",
     "PUBLIC_DISTRIBUTION.md": "aef28d00ac5121e17bd6e5f278f8ada0cf02fbc24d32a8def9e18ab775798764",
     "test_public_distribution.py": "dac81fbf6d9e962935f4418b7ffee9bc73ea5205651240e2015e1daf0690cdef",
     ".gitignore": "49cf275655ef29cd24d7a5fa09ea7ae4eaf3e12528856fe298fabcce35d391cc",
-    "README.md": "1f7140862a8a54a4dcfe96c4c6eb5aef278c971ec3fb9752753d03a6e724d9b5"
+    "README.md": "98a8a23911664e7b6e7281523ace52696fa1d23d746689b8902e0d80690135c5"
   },
   "public_profile": "local-only; no network service or provider adapter"
 }

@@ -78,3 +78,20 @@ class ExactTransport(unittest.TestCase):
         for expr in ['linear_solve([[1],[1,2]], [1,2])', 'linear_solve([[true]], [1])',
                      'linear_solve([[1]], [])']:
             self.assertFalse(tally.eval_json(expr)['ok'])
+
+    def test_least_squares_unique_and_nonidentifiable(self):
+        from fractions import Fraction
+        def q(value):
+            return Fraction(value['numerator'], value['denominator'])
+        result = tally.eval_json('least_squares([[1],[1],[1]], [1,2,4] from "readings")')
+        self.assertEqual(result['sources'], ['readings'])
+        value = result['value']
+        self.assertEqual(q(value['particular'][0]), Fraction(7,3))
+        self.assertEqual(list(map(q,value['residuals'])), [Fraction(4,3),Fraction(1,3),Fraction(-5,3)])
+        self.assertEqual(q(value['squared_error']), Fraction(14,3))
+        value = tally.eval_json('least_squares([[1,2],[1,2]], [0,2])')['value']
+        self.assertEqual(value['status'], 'parametric')
+        self.assertEqual(list(map(q,value['nullspace'][0])), [-2,1])
+        self.assertEqual(q(value['squared_error']), 2)
+        value = tally.eval_json('least_squares([[0],[0]],[1,2])')['value']
+        self.assertEqual((value['rank'], q(value['squared_error'])), (0,5))

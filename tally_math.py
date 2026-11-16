@@ -43,21 +43,30 @@ def install(it):
     @bi("linear_solve", 2)
     def linear_solve(it_, node, coefficients, constants):
         """Solve a rectangular decimal system over the rationals by row reduction."""
+        return solve_system(node, coefficients, constants, fit=False)
+
+    @bi("least_squares", 2)
+    def least_squares(it_, node, coefficients, constants):
+        """Find the exact ordinary least-squares minimizers and their residuals."""
+        return solve_system(node, coefficients, constants, fit=True)
+
+    def solve_system(node, coefficients, constants, fit):
+        operation = "least_squares" if fit else "linear_solve"
         matrix = as_list(coefficients, node)
         targets = as_list(constants, node)
         if not 1 <= len(matrix) <= 16 or len(targets) != len(matrix):
-            raise it.err("linear_solve: supply 1..16 equations and one constant per equation", node)
+            raise it.err(f"{operation}: supply 1..16 equations and one constant per equation", node)
         width = len(as_list(matrix[0], node))
         if not 1 <= width <= 16:
-            raise it.err("linear_solve: supply 1..16 coefficients per row", node)
+            raise it.err(f"{operation}: supply 1..16 coefficients per row", node)
 
         def scalar(value):
             number = T.strip(value)
             if not isinstance(number, Decimal) or not number.is_finite():
-                raise it.err("linear_solve: coefficients and constants must be finite decimals", node)
+                raise it.err(f"{operation}: coefficients and constants must be finite decimals", node)
             parts = number.as_tuple()
             if len(parts.digits) > 100 or abs(parts.exponent) > 100:
-                raise it.err("linear_solve: each input allows 100 digits and exponent magnitude 100", node)
+                raise it.err(f"{operation}: each input allows 100 digits and exponent magnitude 100", node)
             return Fraction(number)
 
         sources = set(T.srcs(coefficients, constants))
@@ -65,9 +74,16 @@ def install(it):
         for row, target in zip(matrix, targets):
             values = as_list(row, node)
             if len(values) != width:
-                raise it.err("linear_solve: rows must have equal width", node)
+                raise it.err(f"{operation}: rows must have equal width", node)
             sources.update(T.srcs(row, target, *values))
             reduced.append([scalar(value) for value in [*values, target]])
+
+        if fit:
+            original = reduced
+            # Each normal equation is one column of A dotted with every
+            # column of [A | b]. Rational elimination preserves the rank.
+            reduced = [[sum(row[i] * row[j] for row in original)
+                        for j in range(width + 1)] for i in range(width)]
 
         pivots = []
         for col in range(width):
@@ -85,9 +101,11 @@ def install(it):
                     reduced[i] = [x - factor*y for x, y in zip(row, normalized)]
             pivots.append(col)
 
+        def rational(value):
+            return {"numerator": Decimal(value.numerator), "denominator": Decimal(value.denominator)}
+
         def encode(vector):
-            return [{"numerator": Decimal(x.numerator), "denominator": Decimal(x.denominator)}
-                    for x in vector]
+            return [rational(value) for value in vector]
 
         free = [col for col in range(width) if col not in pivots]
         result = {"rank": Decimal(len(pivots)), "particular": None, "nullspace": []}
@@ -104,6 +122,11 @@ def install(it):
             for i, pivot in enumerate(pivots):
                 particular[pivot] = reduced[i][-1]
             result.update(status="parametric" if free else "unique", particular=encode(particular))
+            if fit:
+                residuals = [sum(a * x for a, x in zip(row[:-1], particular)) - row[-1]
+                             for row in original]
+                result["residuals"] = encode(residuals)
+                result["squared_error"] = rational(sum(value * value for value in residuals))
         return T.wrap(result, frozenset(sources))
 
     def fld(e, name, node):

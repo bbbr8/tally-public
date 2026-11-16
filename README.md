@@ -83,3 +83,9 @@ add any linear combination of those basis vectors to the particular solution.
 Supply 1–16 equations and 1–16 variables with finite decimal inputs of at most
 100 digits and decimal exponent magnitude at most 100. Source tags on rows,
 coefficients, and constants propagate to the result.
+
+`least_squares(A, b)` minimizes the sum of squared errors in `A x = b` using
+exact rationals. With three readings of 1, 2 and 4 for a single constant, the
+fit is 7/3 and the squared error is 14/3. Residuals are fitted minus observed,
+in input order. Rank-deficient inputs include a basis for all equally good fits.
+The input limits and source-tag rules match `linear_solve`.
