@@ -18,6 +18,7 @@ lies inside [floor, ceiling]. Same-day order is searched both ways and the envel
 """
 import itertools
 from decimal import Decimal
+from fractions import Fraction
 
 import tally as T
 
@@ -38,6 +39,95 @@ def install(it):
         if not isinstance(x, list):
             raise it.err(f"expected a list, got {T.type_name(x)}", node)
         return x
+
+    @bi("linear_solve", 2)
+    def linear_solve(it_, node, coefficients, constants):
+        """Solve a rectangular decimal system over the rationals by row reduction."""
+        return solve_system(node, coefficients, constants, fit=False)
+
+    @bi("least_squares", 2)
+    def least_squares(it_, node, coefficients, constants):
+        """Find the exact ordinary least-squares minimizers and their residuals."""
+        return solve_system(node, coefficients, constants, fit=True)
+
+    def solve_system(node, coefficients, constants, fit):
+        operation = "least_squares" if fit else "linear_solve"
+        matrix = as_list(coefficients, node)
+        targets = as_list(constants, node)
+        if not 1 <= len(matrix) <= 16 or len(targets) != len(matrix):
+            raise it.err(f"{operation}: supply 1..16 equations and one constant per equation", node)
+        width = len(as_list(matrix[0], node))
+        if not 1 <= width <= 16:
+            raise it.err(f"{operation}: supply 1..16 coefficients per row", node)
+
+        def scalar(value):
+            number = T.strip(value)
+            if not isinstance(number, Decimal) or not number.is_finite():
+                raise it.err(f"{operation}: coefficients and constants must be finite decimals", node)
+            parts = number.as_tuple()
+            if len(parts.digits) > 100 or abs(parts.exponent) > 100:
+                raise it.err(f"{operation}: each input allows 100 digits and exponent magnitude 100", node)
+            return Fraction(number)
+
+        sources = set(T.srcs(coefficients, constants))
+        reduced = []
+        for row, target in zip(matrix, targets):
+            values = as_list(row, node)
+            if len(values) != width:
+                raise it.err(f"{operation}: rows must have equal width", node)
+            sources.update(T.srcs(row, target, *values))
+            reduced.append([scalar(value) for value in [*values, target]])
+
+        if fit:
+            original = reduced
+            # Each normal equation is one column of A dotted with every
+            # column of [A | b]. Rational elimination preserves the rank.
+            reduced = [[sum(row[i] * row[j] for row in original)
+                        for j in range(width + 1)] for i in range(width)]
+
+        pivots = []
+        for col in range(width):
+            rank = len(pivots)
+            pivot = next((i for i in range(rank, len(reduced)) if reduced[i][col]), None)
+            if pivot is None:
+                continue
+            reduced[rank], reduced[pivot] = reduced[pivot], reduced[rank]
+            divisor = reduced[rank][col]
+            normalized = [value / divisor for value in reduced[rank]]
+            reduced[rank] = normalized
+            for i, row in enumerate(reduced):
+                if i != rank and row[col]:
+                    factor = row[col]
+                    reduced[i] = [x - factor*y for x, y in zip(row, normalized)]
+            pivots.append(col)
+
+        def rational(value):
+            return {"numerator": Decimal(value.numerator), "denominator": Decimal(value.denominator)}
+
+        def encode(vector):
+            return [rational(value) for value in vector]
+
+        free = [col for col in range(width) if col not in pivots]
+        result = {"rank": Decimal(len(pivots)), "particular": None, "nullspace": []}
+        # With each free coordinate set to one in turn, solve the homogeneous system.
+        for col in free:
+            direction = [Fraction(i == col) for i in range(width)]
+            for i, pivot in enumerate(pivots):
+                direction[pivot] = -reduced[i][col]
+            result["nullspace"].append(encode(direction))
+        if any(row[-1] for row in reduced[len(pivots):]):
+            result["status"] = "inconsistent"
+        else:
+            particular = [Fraction(0)] * width
+            for i, pivot in enumerate(pivots):
+                particular[pivot] = reduced[i][-1]
+            result.update(status="parametric" if free else "unique", particular=encode(particular))
+            if fit:
+                residuals = [sum(a * x for a, x in zip(row[:-1], particular)) - row[-1]
+                             for row in original]
+                result["residuals"] = encode(residuals)
+                result["squared_error"] = rational(sum(value * value for value in residuals))
+        return T.wrap(result, frozenset(sources))
 
     def fld(e, name, node):
         v = T.strip(e)

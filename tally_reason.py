@@ -17,6 +17,7 @@
 import datetime as _dt
 import re as _re
 from decimal import Decimal
+from fractions import Fraction
 
 import tally as T
 
@@ -290,24 +291,29 @@ def install(it):
         if not isinstance(t, T.Money):
             raise it_.err("allocate: the total is money", node)
         ws = []
-        for w in T.strip(weights):
+        values = T.strip(weights)
+        if not isinstance(values, list):
+            raise it_.err("allocate: supply a list of weights", node)
+        for w in values:
             v = T.strip(w)
             v = Decimal(v.cents) if isinstance(v, T.Money) else v
-            if not isinstance(v, Decimal) or v < 0:
+            if not isinstance(v, Decimal) or not v.is_finite() or v < 0:
                 raise it_.err("allocate: weights are non-negative numbers or money", node)
-            ws.append(v)
+            if v and abs(v.as_tuple().exponent) > 10000:
+                raise it_.err("allocate: weight exponent exceeds the exact allocation limit", node)
+            ws.append(Fraction(v) if v else Fraction(0))
         tw = sum(ws)
         if not ws or tw == 0:
             raise it_.err("allocate: the weights must not all be zero", node)
         sign = -1 if t.cents < 0 else 1
         cents = abs(t.cents)
-        exact = [Decimal(cents) * w / tw for w in ws]
+        exact = [cents * w / tw for w in ws]
         base = [int(x) for x in exact]
         left = cents - sum(base)
         order = sorted(range(len(ws)), key=lambda i: (-(exact[i] - base[i]), i))
         for i in order[:left]:
             base[i] += 1
-        s_ = T.srcs(total, *T.strip(weights))
+        s_ = T.srcs(total, weights, *values)
         return [T.wrap(T.Money(sign * b), s_) for b in base]
 
     @bi("disagreements", (1, 2))

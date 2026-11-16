@@ -3573,6 +3573,9 @@ class Session:
                 reqs = req.get("requests")
                 if not isinstance(reqs, list):
                     raise TallyError("batch needs requests: [...]", 0, 0, "<session>")
+                atomic = req.get("atomic", False)
+                if not isinstance(atomic, bool):
+                    raise TallyError("batch needs a boolean atomic flag", 0, 0, "<session>")
                 saved = self.capture()
                 saved_checkpoints = dict(self.checkpoints)
                 results = []
@@ -3584,12 +3587,12 @@ class Session:
                                                   "hint": None, "trace": []}})
                     else:
                         results.append(self.handle(sub, nested=True))
-                    if req.get("atomic") and not results[-1]["ok"]:
+                    if atomic and not results[-1]["ok"]:
                         break
                 failed = [r for r in results if not r["ok"]]
                 base["value"] = results
                 base["rolled_back"] = False
-                if failed and req.get("atomic"):
+                if failed and atomic:
                     self.restore_state(saved)
                     self.checkpoints = saved_checkpoints
                     base["rolled_back"] = True

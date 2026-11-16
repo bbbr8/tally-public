@@ -30,6 +30,37 @@ def no_imports(source):
     visit(tally.parse(source,'<candidate>'))
 
 
+def rejection_certificate(rows, tests):
+    """Minimum test subset witnessing every evaluated rejection, in packet order."""
+    evaluated = [row for row in rows if row['checks']]
+    failures = {test['id']: [] for test in tests}
+    masks = dict.fromkeys(failures, 0)
+    target = 0
+    for index, row in enumerate(evaluated):
+        for check in row['checks']:
+            if not check['passed']:
+                failures[check['id']].append(row['id'])
+                masks[check['id']] |= 1 << index
+                target |= 1 << index
+
+    # One best witness per covered candidate mask (at most 2**16 masks).
+    best = {0: ()}
+    for index, mask in enumerate(masks.values()):
+        if not mask:
+            continue
+        for covered, indices in list(best.items()):
+            union = covered | mask
+            if union == covered:
+                continue
+            proposed = indices + (index,)
+            prior = best.get(union)
+            if prior is None or (len(proposed), proposed) < (len(prior), prior):
+                best[union] = proposed
+    chosen = [tests[i]['id'] for i in best[target]]
+    return {'tests': chosen, 'witnesses': {key: failures[key] for key in chosen},
+            'preflight_rejections': [row['id'] for row in rows if not row['checks']]}
+
+
 def evaluate_candidates(packet):
     if not isinstance(packet,dict):raise ValueError('Candidate packet must be an object')
     candidates=packet.get('candidates');tests=packet.get('tests');steps=packet.get('max_steps',20000)
@@ -72,6 +103,7 @@ def evaluate_candidates(packet):
             'tests_sha256':digest(tests),'candidates':rows,'accepted':[r['id'] for r in rows if r['passed']],
             'outcome_classes':[{'class_id':key,'candidates':ids} for key,ids in sorted(classes.items())],
             'counterexamples':[{'candidate':r['id'],**c} for r in rows for c in r['checks'] if not c['passed']],
+            'rejection_certificate':rejection_certificate(rows, tests),
             'max_steps_per_request':steps,'budget_scope':'candidate setup plus expression per test',
             'scope':'declared exact test outcomes and source IDs; finite conformance only'}
 

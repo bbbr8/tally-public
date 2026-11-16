@@ -64,3 +64,28 @@ Candidate `max_steps` now covers setup plus the expression together, with fresh 
 
 Run the CLI or Python modules locally. No HTTP endpoint, hosting setup or provider
 account is required. [Public distribution policy](PUBLIC_DISTRIBUTION.md).
+
+Candidate evaluation returns a `rejection_certificate`: the smallest subset of
+the supplied tests that still witnesses every candidate rejected by an executed
+check. The report lists which candidates each selected test rejects and records
+preflight failures separately. Ties use packet test order. The certificate
+summarizes this run; future candidate programs still need the full suite.
+
+`allocate($0.01, [1, 1.000000000000000000000000000000000000000000000000001])`
+awards the cent to the second share. Allocation compares fractional remainders
+exactly, including for refunds. Equal remainders go to the earlier weight.
+
+`linear_solve([[3, 1], [0, 2]], [1, 1])` solves both equations exactly:
+x = 1/6 and y = 1/2. Every coordinate has an integer numerator and denominator.
+The result reports coefficient rank, a particular solution (null for inconsistent
+equations), and a basis for the homogeneous nullspace. For a parametric result,
+add any linear combination of those basis vectors to the particular solution.
+Supply 1–16 equations and 1–16 variables with finite decimal inputs of at most
+100 digits and decimal exponent magnitude at most 100. Source tags on rows,
+coefficients, and constants propagate to the result.
+
+`least_squares(A, b)` minimizes the sum of squared errors in `A x = b` using
+exact rationals. With three readings of 1, 2 and 4 for a single constant, the
+fit is 7/3 and the squared error is 14/3. Residuals are fitted minus observed,
+in input order. Rank-deficient inputs include a basis for all equally good fits.
+The input limits and source-tag rules match `linear_solve`.
