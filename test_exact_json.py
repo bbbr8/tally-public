@@ -45,3 +45,36 @@ class ExactTransport(unittest.TestCase):
             self.assertFalse(result['ok'])
             self.assertEqual(result['rolled_back'], flag)
             self.assertEqual(session.handle({'op': 'eval', 'code': 'amount'})['ok'], not flag)
+
+    def test_cent_allocation_compares_remainders_beyond_decimal_precision(self):
+        weights = '[1, 1.' + '0' * 50 + '1] from "weights"'
+        for amount, expected in [('$0.01', '1'), ('-$0.01', '-1')]:
+            expr = f'allocate({amount} from "amount", {weights})'
+            report = tally.eval_json(expr)
+            self.assertTrue(report['ok'])
+            self.assertEqual([v['cents'] for v in report['exact_value']], ['0', expected])
+            self.assertEqual(report['sources'], ['amount', 'weights'])
+        self.assertEqual(tally.eval_json('allocate($0.01, [1, 1])')['value'], ['$0.01', '$0.00'])
+
+    def test_linear_solve_exact_unique_singular_and_inconsistent(self):
+        from fractions import Fraction
+        def solve(matrix, rhs):
+            report = tally.eval_json(f'linear_solve({matrix}, {rhs})')
+            self.assertTrue(report['ok'], report['error'])
+            return report
+        def vector(entries):
+            return [Fraction(int(entry['numerator']), int(entry['denominator'])) for entry in entries]
+        report = solve('[[0,2], [3 from "coefficient",1]]', '[1,1] from "constants"')
+        self.assertEqual(report['sources'], ['coefficient','constants'])
+        value = report['value']
+        self.assertEqual((value['status'], value['rank']), ('unique', 2))
+        self.assertEqual(vector(value['particular']), [Fraction(1,6), Fraction(1,2)])
+        value = solve('[[2,4],[1,2]]', '[4,2]')['value']
+        self.assertEqual((value['status'], value['rank']), ('parametric', 1))
+        self.assertEqual(vector(value['particular']), [2,0])
+        self.assertEqual(vector(value['nullspace'][0]), [-2,1])
+        value = solve('[[2,4],[1,2]]', '[4,3]')['value']
+        self.assertEqual((value['status'], value['particular']), ('inconsistent', None))
+        for expr in ['linear_solve([[1],[1,2]], [1,2])', 'linear_solve([[true]], [1])',
+                     'linear_solve([[1]], [])']:
+            self.assertFalse(tally.eval_json(expr)['ok'])

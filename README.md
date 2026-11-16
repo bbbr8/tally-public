@@ -70,3 +70,16 @@ the supplied tests that still witnesses every candidate rejected by an executed
 check. The report lists which candidates each selected test rejects and records
 preflight failures separately. Ties use packet test order. The certificate
 summarizes this run; future candidate programs still need the full suite.
+
+`allocate($0.01, [1, 1.000000000000000000000000000000000000000000000000001])`
+awards the cent to the second share. Allocation compares fractional remainders
+exactly, including for refunds. Equal remainders go to the earlier weight.
+
+`linear_solve([[3, 1], [0, 2]], [1, 1])` solves both equations exactly:
+x = 1/6 and y = 1/2. Every coordinate has an integer numerator and denominator.
+The result reports coefficient rank, a particular solution (null for inconsistent
+equations), and a basis for the homogeneous nullspace. For a parametric result,
+add any linear combination of those basis vectors to the particular solution.
+Supply 1–16 equations and 1–16 variables with finite decimal inputs of at most
+100 digits and decimal exponent magnitude at most 100. Source tags on rows,
+coefficients, and constants propagate to the result.

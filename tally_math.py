@@ -18,6 +18,7 @@ lies inside [floor, ceiling]. Same-day order is searched both ways and the envel
 """
 import itertools
 from decimal import Decimal
+from fractions import Fraction
 
 import tally as T
 
@@ -38,6 +39,72 @@ def install(it):
         if not isinstance(x, list):
             raise it.err(f"expected a list, got {T.type_name(x)}", node)
         return x
+
+    @bi("linear_solve", 2)
+    def linear_solve(it_, node, coefficients, constants):
+        """Solve a rectangular decimal system over the rationals by row reduction."""
+        matrix = as_list(coefficients, node)
+        targets = as_list(constants, node)
+        if not 1 <= len(matrix) <= 16 or len(targets) != len(matrix):
+            raise it.err("linear_solve: supply 1..16 equations and one constant per equation", node)
+        width = len(as_list(matrix[0], node))
+        if not 1 <= width <= 16:
+            raise it.err("linear_solve: supply 1..16 coefficients per row", node)
+
+        def scalar(value):
+            number = T.strip(value)
+            if not isinstance(number, Decimal) or not number.is_finite():
+                raise it.err("linear_solve: coefficients and constants must be finite decimals", node)
+            parts = number.as_tuple()
+            if len(parts.digits) > 100 or abs(parts.exponent) > 100:
+                raise it.err("linear_solve: each input allows 100 digits and exponent magnitude 100", node)
+            return Fraction(number)
+
+        sources = set(T.srcs(coefficients, constants))
+        reduced = []
+        for row, target in zip(matrix, targets):
+            values = as_list(row, node)
+            if len(values) != width:
+                raise it.err("linear_solve: rows must have equal width", node)
+            sources.update(T.srcs(row, target, *values))
+            reduced.append([scalar(value) for value in [*values, target]])
+
+        pivots = []
+        for col in range(width):
+            rank = len(pivots)
+            pivot = next((i for i in range(rank, len(reduced)) if reduced[i][col]), None)
+            if pivot is None:
+                continue
+            reduced[rank], reduced[pivot] = reduced[pivot], reduced[rank]
+            divisor = reduced[rank][col]
+            normalized = [value / divisor for value in reduced[rank]]
+            reduced[rank] = normalized
+            for i, row in enumerate(reduced):
+                if i != rank and row[col]:
+                    factor = row[col]
+                    reduced[i] = [x - factor*y for x, y in zip(row, normalized)]
+            pivots.append(col)
+
+        def encode(vector):
+            return [{"numerator": Decimal(x.numerator), "denominator": Decimal(x.denominator)}
+                    for x in vector]
+
+        free = [col for col in range(width) if col not in pivots]
+        result = {"rank": Decimal(len(pivots)), "particular": None, "nullspace": []}
+        # With each free coordinate set to one in turn, solve the homogeneous system.
+        for col in free:
+            direction = [Fraction(i == col) for i in range(width)]
+            for i, pivot in enumerate(pivots):
+                direction[pivot] = -reduced[i][col]
+            result["nullspace"].append(encode(direction))
+        if any(row[-1] for row in reduced[len(pivots):]):
+            result["status"] = "inconsistent"
+        else:
+            particular = [Fraction(0)] * width
+            for i, pivot in enumerate(pivots):
+                particular[pivot] = reduced[i][-1]
+            result.update(status="parametric" if free else "unique", particular=encode(particular))
+        return T.wrap(result, frozenset(sources))
 
     def fld(e, name, node):
         v = T.strip(e)

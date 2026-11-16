@@ -242,6 +242,8 @@ DOCS = {
     "closed": ("reasoning", "declare a predicate complete on a source: not P(…) then holds when nothing matches, a missing P "
                "is false, and every conclusion that uses the absence cites the declaration (fact Complete(\"P\"))",
                'closed("Refund", "BANK-DEMO every line 2030-01-22..2031-04-30")', 'nil'),
+    "linear_solve": ("forensic math", "solve up to 16 equations in 16 variables exactly; report rank, a particular solution and a nullspace basis",
+                     'linear_solve([[3, 1], [0, 2]], [1, 1]).status', '"unique"'),
     "allocate": ("forensic math", "split money by weights to the cent (largest remainder); the shares add back exactly",
                  'allocate($100.00, [1, 1, 1])', '[$33.34, $33.33, $33.33]'),
     "disagreements": ("reasoning", "facts of one predicate that agree on every other argument but differ in one (default the "
