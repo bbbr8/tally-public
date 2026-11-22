@@ -64,3 +64,7 @@ Candidate `max_steps` now covers setup plus the expression together, with fresh 
 
 Run the CLI or Python modules locally. No HTTP endpoint, hosting setup or provider
 account is required. [Public distribution policy](PUBLIC_DISTRIBUTION.md).
+
+## Zeta language family
+
+Zeta, formerly Atone, and its six companion languages are published on the `zeta-family` branch. Each has a runnable mathematical example. The branch also includes Bryce’s Riemann Answer Key, the numerical scoreboard, and the source and results for the finite Lean proofs. [Browse Zeta and the proof materials](https://github.com/bbbr8/tally-public/tree/zeta-family/zeta).
