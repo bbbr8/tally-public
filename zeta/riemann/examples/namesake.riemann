@@ -1,0 +1,5 @@
+# Namesake ability of Riemann: the explicit formula. Finite checks of known values.
+let z = zeta_zeros(3)
+print "first three zeros:", z
+expect abs(z[0] - 14.134725) < 1 / 100000
+expect abs(explicit_psi(20 + 1 / 2, 50) - chebyshev_psi(20 + 1 / 2)) < 1 / 2

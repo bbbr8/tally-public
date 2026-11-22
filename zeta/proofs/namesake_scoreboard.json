@@ -1,0 +1,520 @@
+{
+ "run": "2026-11-21",
+ "core_sha256": "2fc5927b4ce70ba6",
+ "reference": "mpmath 1.3.0 at 50 digits and plain Python",
+ "rows": [
+  {
+   "language": "Zeta",
+   "pass": true,
+   "exit": 0,
+   "seconds": 0.12,
+   "headline": "30 decimals right at 7 points; 6 even values and 8 negative values exact",
+   "checks": [
+    {
+     "id": "even",
+     "pass": true,
+     "what": "zeta(2k) / pi^2k as exact fractions, k = 1..6",
+     "got": "1/6, 1/90, 1/945, 1/9450, 1/93555, 691/638512875",
+     "expected_independent": "closed forms; mpmath agrees to 2.7e-51"
+    },
+    {
+     "id": "negative",
+     "pass": true,
+     "what": "exact values at 0, -1, -2, -3, -5, -7, -9, -11",
+     "got": "-1/2, -1/12, 0, 1/120, -1/252, 1/240, -1/132, 691/32760",
+     "expected_independent": "mpmath agrees to 0.0e+00"
+    },
+    {
+     "id": "decimals",
+     "pass": true,
+     "what": "zeta at 2, 3, 4, 5, 3/2, 1/2, -1/2 to 30 decimals",
+     "got": "largest miss 4.5e-31",
+     "expected_independent": "mpmath at 50 digits"
+    },
+    {
+     "id": "trivial zeros",
+     "pass": true,
+     "what": "zeta(-2k) = 0 for k = 1..20",
+     "got": "20",
+     "expected_independent": "20"
+    },
+    {
+     "id": "curve",
+     "pass": true,
+     "what": "160 points from -14 to 6",
+     "got": "largest miss 1.0e-09",
+     "expected_independent": "mpmath; printed to 9 decimals"
+    },
+    {
+     "id": "own expectations",
+     "pass": true,
+     "what": "the program's own expect lines",
+     "got": "expect 5/5",
+     "expected_independent": "all held, exit 0"
+    }
+   ],
+   "program": "nm_zeta.zeta",
+   "program_sha256": "ba19558b34637116",
+   "ability_sha256": "d3ad80454e94bddf",
+   "extra": {
+    "max_miss_decimals": "4.5e-31"
+   }
+  },
+  {
+   "language": "Euler",
+   "pass": true,
+   "exit": 0,
+   "seconds": 2.44,
+   "headline": "product over 1,229 primes is 1.6e-05 short of pi^2/6",
+   "checks": [
+    {
+     "id": "exact product",
+     "pass": true,
+     "what": "product over 2, 3, 5, 7 at s = 2",
+     "got": "1225/768",
+     "expected_independent": "1225/768"
+    },
+    {
+     "id": "gap to zeta",
+     "pass": true,
+     "what": "zeta(s) minus the product, s = 2 and 4, P = 10 .. 10000",
+     "got": "5.0e-02, 3.0e-03, 2.1e-04, 1.6e-05",
+     "expected_independent": "own product and mpmath zeta; largest difference 7.1e-16"
+    },
+    {
+     "id": "tail bound",
+     "pass": true,
+     "what": "0 < zeta(s) - product < P^(1-s) / (s-1)",
+     "got": "holds at all 8",
+     "expected_independent": "holds at all 8"
+    },
+    {
+     "id": "squarefree",
+     "pass": true,
+     "what": "squarefree numbers up to 3000, counted in the language",
+     "got": "1824",
+     "expected_independent": "1824; share 0.6080 against 6/pi^2 = 0.6079"
+    },
+    {
+     "id": "steps",
+     "pass": true,
+     "what": "30 + 320 partial products",
+     "got": "largest miss 1.0e-12",
+     "expected_independent": "own exact product"
+    },
+    {
+     "id": "own expectations",
+     "pass": true,
+     "what": "the program's own expect lines",
+     "got": "expect 10/10",
+     "expected_independent": "all held, exit 0"
+    }
+   ],
+   "program": "nm_euler.euler",
+   "program_sha256": "0c29f56df790f4d8",
+   "ability_sha256": "fc8447276de8afa7",
+   "extra": {
+    "gap_10000": "1.6e-05",
+    "squarefree": 1824
+   }
+  },
+  {
+   "language": "Gauss",
+   "pass": true,
+   "exit": 0,
+   "seconds": 0.57,
+   "headline": "78,498 primes below a million; li misses by 129.5",
+   "checks": [
+    {
+     "id": "prime counts",
+     "pass": true,
+     "what": "primes up to 10, 100, ..., 1,000,000",
+     "got": "4, 25, 168, 1229, 9592, 78498",
+     "expected_independent": "own sieve: 4, 25, 168, 1229, 9592, 78498"
+    },
+    {
+     "id": "li",
+     "pass": true,
+     "what": "li at the same six points, printed to 6 decimals",
+     "got": "6.165599, 30.126141, 177.609657, 1246.137215, 9629.809001, 78627.549159",
+     "expected_independent": "mpmath; largest miss 9.9e-07"
+    },
+    {
+     "id": "trial division",
+     "pass": true,
+     "what": "primes up to 2000 by trial division in the language",
+     "got": "303",
+     "expected_independent": "303"
+    },
+    {
+     "id": "samples",
+     "pass": true,
+     "what": "181 + 119 sample points",
+     "got": "counts exact; li within 1.0e-06",
+     "expected_independent": "own sieve and mpmath"
+    },
+    {
+     "id": "estimate above count",
+     "pass": true,
+     "what": "li(x) > pi(x) at every prime up to 1,000,000",
+     "got": "True",
+     "expected_independent": "True"
+    },
+    {
+     "id": "RH-equivalent bound",
+     "pass": true,
+     "what": "|pi(x) - li(x)| < sqrt(x) ln x / (8 pi) on 2657 <= x <= 1,000,000",
+     "got": "largest ratio 0.9797 at x = 2,659",
+     "expected_independent": "ratio below 1 at every prime and just before it"
+    },
+    {
+     "id": "own expectations",
+     "pass": true,
+     "what": "the program's own expect lines",
+     "got": "expect 2/2",
+     "expected_independent": "all held, exit 0"
+    }
+   ],
+   "program": "nm_gauss.gauss",
+   "program_sha256": "cf700cd3cc24792b",
+   "ability_sha256": "e504b6b752b58235",
+   "extra": {
+    "bound_ratio": 0.9796745110137676,
+    "bound_at": 2659,
+    "miss_1e6": 129.54915946218534
+   }
+  },
+  {
+   "language": "Riemann",
+   "pass": true,
+   "exit": 0,
+   "seconds": 3.79,
+   "headline": "200 zeros rebuild the prime staircase to within 0.14 on average (10 zeros: 0.56)",
+   "checks": [
+    {
+     "id": "zeros",
+     "pass": true,
+     "what": "first ten zeros printed; all 200 used by the formula",
+     "got": "largest miss 3.1e-06 (ten), 3.1e-06 (200)",
+     "expected_independent": "mpmath zetazero"
+    },
+    {
+     "id": "staircase",
+     "pass": true,
+     "what": "psi(x) at 8 points",
+     "got": "largest miss 5.7e-10",
+     "expected_independent": "own sum of ln p"
+    },
+    {
+     "id": "formula",
+     "pass": true,
+     "what": "explicit formula with 10, 50 and 200 zeros at 8 points",
+     "got": "largest miss 4.0e-05",
+     "expected_independent": "same formula with mpmath zeros"
+    },
+    {
+     "id": "more zeros, closer",
+     "pass": true,
+     "what": "mean distance from the staircase",
+     "got": "1.196, 0.463, 0.227",
+     "expected_independent": "1.196, 0.463, 0.227"
+    },
+    {
+     "id": "curve",
+     "pass": true,
+     "what": "480 points from 2 to 62",
+     "got": "largest miss 2.5e-05 on every 8th point",
+     "expected_independent": "own staircase and formula"
+    },
+    {
+     "id": "own expectations",
+     "pass": true,
+     "what": "the program's own expect lines",
+     "got": "expect 1/1",
+     "expected_independent": "all held, exit 0"
+    }
+   ],
+   "program": "nm_riemann.riemann",
+   "program_sha256": "4684ee09f55fdb7b",
+   "ability_sha256": "141efef09a21ce8a",
+   "extra": {
+    "curve_mean_miss": [
+     0.5629610104166667,
+     0.13559646875
+    ],
+    "zero_miss_200": "3.1e-06"
+   }
+  },
+  {
+   "language": "Mertens",
+   "pass": true,
+   "exit": 0,
+   "seconds": 0.35,
+   "headline": "M(1,000,000) = 212; never outside sqrt(n) (peak ratio 0.472 past 1000)",
+   "checks": [
+    {
+     "id": "M at powers of ten",
+     "pass": true,
+     "what": "M(10), M(100), ..., M(1,000,000)",
+     "got": "-1, 1, 2, -23, -48, 212",
+     "expected_independent": "own sieve: -1, 1, 2, -23, -48, 212"
+    },
+    {
+     "id": "largest ratio",
+     "pass": true,
+     "what": "where M(n)^2 / n peaks, from 2 and from 1000",
+     "got": "[[5, -2], [2803, -25]]",
+     "expected_independent": "[[5, -2], [2803, -25]]"
+    },
+    {
+     "id": "inside sqrt(n)",
+     "pass": true,
+     "what": "|M(n)| < sqrt(n) for every 2 <= n <= 1,000,000",
+     "got": "holds (checked in the language at the peak)",
+     "expected_independent": "holds at all 999,999"
+    },
+    {
+     "id": "running total",
+     "pass": true,
+     "what": "sum of mobius(n) kept in the language against the built-in, n <= 5000",
+     "got": "5000 of 5000",
+     "expected_independent": "M(5000) = 2"
+    },
+    {
+     "id": "divisor sums",
+     "pass": true,
+     "what": "sum of mobius(d) over divisors of n is 0, n = 2..300",
+     "got": "299",
+     "expected_independent": "299"
+    },
+    {
+     "id": "walk",
+     "pass": true,
+     "what": "2000 points of the walk",
+     "got": "all match",
+     "expected_independent": "own sieve"
+    },
+    {
+     "id": "own expectations",
+     "pass": true,
+     "what": "the program's own expect lines",
+     "got": "expect 3/3",
+     "expected_independent": "all held, exit 0"
+    }
+   ],
+   "program": "nm_mertens.mertens",
+   "program_sha256": "e100d8aafd42d7de",
+   "ability_sha256": "0966101f0520f329",
+   "extra": {
+    "far_peak": [
+     2803,
+     -25
+    ],
+    "ratio": 0.47220269325540665
+   }
+  },
+  {
+   "language": "Hardy",
+   "pass": true,
+   "exit": 0,
+   "seconds": 1.26,
+   "headline": "79 of 79 zeros below height 200 found on the critical line",
+   "checks": [
+    {
+     "id": "zeros on the line",
+     "pass": true,
+     "what": "sign changes of Z for 10 <= t <= 200",
+     "got": "79",
+     "expected_independent": "79 zeros of zeta in the strip below 200 (mpmath nzeros)"
+    },
+    {
+     "id": "where they are",
+     "pass": true,
+     "what": "79 zero heights",
+     "got": "largest miss 3.1e-06",
+     "expected_independent": "mpmath zetazero"
+    },
+    {
+     "id": "the curve",
+     "pass": true,
+     "what": "1900 values of Z, printed to 6 decimals",
+     "got": "largest miss 1.5e-05 at t = 10.0; 1.0e-06 above t = 50",
+     "expected_independent": "mpmath siegelz; within 0.0001 everywhere and 0.00001 above t = 50"
+    },
+    {
+     "id": "smooth count",
+     "pass": true,
+     "what": "theta(200) / pi + 1",
+     "got": "79.19328",
+     "expected_independent": "79.19328034724403"
+    },
+    {
+     "id": "own expectations",
+     "pass": true,
+     "what": "the program's own expect lines",
+     "got": "expect 1/1",
+     "expected_independent": "all held, exit 0"
+    }
+   ],
+   "program": "nm_hardy.hardy",
+   "program_sha256": "856fbe085b01267d",
+   "ability_sha256": "bbb3f935a892db86",
+   "extra": {
+    "zeros": 79,
+    "strip": 79,
+    "max_zero_miss": "3.1e-06",
+    "max_curve_miss": "1.5e-05",
+    "max_curve_miss_at": 10.0,
+    "max_curve_miss_above_50": "1.0e-06"
+   }
+  },
+  {
+   "language": "Siegel",
+   "pass": true,
+   "exit": 0,
+   "seconds": 0.62,
+   "headline": "four more terms cut the worst zero error from 0.0075 to 0.0000031",
+   "checks": [
+    {
+     "id": "ten zeros each",
+     "pass": true,
+     "what": "zeros found with terms C0..Ck, k = 0..4",
+     "got": "10, 10, 10, 10, 10",
+     "expected_independent": "10"
+    },
+    {
+     "id": "each term helps",
+     "pass": true,
+     "what": "largest distance from the true zeros, k = 0..4",
+     "got": "7.5e-03, 2.5e-03, 9.8e-05, 9.8e-05, 3.1e-06",
+     "expected_independent": "mpmath zetazero; no worse at each step"
+    },
+    {
+     "id": "the terms",
+     "pass": true,
+     "what": "C0..C4 at p = 0, 1/4, 1/2, 3/4, 1",
+     "got": "largest miss 9.3e-13",
+     "expected_independent": "derivatives of psi by mpmath"
+    },
+    {
+     "id": "high up",
+     "pass": true,
+     "what": "Z at t = 14, 100, 1000, 100000 with k = 0..4",
+     "got": "t=14: 2.2e-03 -> 2.4e-06; t=100: 3.3e-03 -> 3.7e-08; t=1000: 1.2e-04 -> 2.6e-11; t=100000: 5.3e-06 -> 2.1e-16",
+     "expected_independent": "mpmath siegelz"
+    },
+    {
+     "id": "own expectations",
+     "pass": true,
+     "what": "the program's own expect lines",
+     "got": "expect 1/1",
+     "expected_independent": "all held, exit 0"
+    }
+   ],
+   "program": "nm_siegel.siegel",
+   "program_sha256": "b2905c122789b01a",
+   "ability_sha256": "0d215936d0daaa32",
+   "extra": {
+    "max_gap_by_k": [
+     0.007543820446311237,
+     0.0024710145033062098,
+     9.779094230620954e-05,
+     9.768928230620954e-05,
+     3.134182306209543e-06
+    ],
+    "gaps": [
+     [
+      0.0024709575873062095,
+      0.0023370753924450076,
+      0.007543820446311237,
+      0.0027697072224867896,
+      0.0024998259491896906,
+      0.0006837274123287427,
+      0.0001201176645048126,
+      0.0005830843439995195,
+      0.001229451035840272,
+      0.001191832180302182
+     ],
+     [
+      0.0024710145033062098,
+      0.0006945932315549926,
+      0.00017236923931123678,
+      0.0004407831844867897,
+      0.0004645813831896907,
+      0.00029386584132874276,
+      0.0003358867464951874,
+      0.0002497548300004805,
+      0.00022192865315972794,
+      0.00020067092569781808
+     ],
+     [
+      9.779094230620954e-05,
+      2.4550845549926287e-06,
+      1.3914616311236786e-05,
+      1.0410034486789687e-05,
+      1.7088357189690663e-05,
+      7.350893328742782e-06,
+      1.1824724951873982e-06,
+      2.228916999519496e-06,
+      2.6157758402720577e-06,
+      9.328273021819168e-07
+     ],
+     [
+      9.768928230620954e-05,
+      1.010687555499263e-05,
+      1.1844113112367863e-06,
+      3.053313486789688e-06,
+      4.852384189690663e-06,
+      4.1815983287427824e-06,
+      4.5937204951873985e-06,
+      2.9594500004805037e-06,
+      1.6161441597279425e-06,
+      1.1754346978180832e-06
+     ],
+     [
+      3.134182306209543e-06,
+      2.5912465549926286e-06,
+      1.2686573112367862e-06,
+      6.748485132103119e-07,
+      3.524558103093376e-07,
+      1.1063287427822365e-09,
+      9.819249518739813e-08,
+      1.1252700048050388e-07,
+      1.6760815972794247e-07,
+      1.8217369781808323e-07
+     ]
+    ],
+    "z_error": {
+     "14": [
+      0.0022043003315173337,
+      0.00198973064945556,
+      8.376237502901686e-05,
+      7.895530221737186e-05,
+      2.357839385525861e-06
+     ],
+     "100": [
+      0.003289936326386256,
+      3.8851694933136e-05,
+      1.5611774368719953e-06,
+      3.800926479699538e-08,
+      3.727279819999538e-08
+     ],
+     "1000": [
+      0.00012498064060899498,
+      9.118535095804014e-06,
+      3.2487575811986006e-08,
+      4.604091869013998e-09,
+      2.6325499013997315e-11
+     ],
+     "100000": [
+      5.313183408004454e-06,
+      1.849235720945353e-08,
+      1.4890364535275368e-12,
+      3.9129453527536724e-14,
+      2.0654647246327605e-16
+     ]
+    }
+   }
+  }
+ ]
+}

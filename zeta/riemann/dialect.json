@@ -1,0 +1,29 @@
+{
+  "name": "Riemann",
+  "lower": "riemann",
+  "generation": 3,
+  "formerly": "Emmaus",
+  "lineage_parents": [
+    "tally",
+    "Gauss"
+  ],
+  "parents": [
+    "Gauss"
+  ],
+  "bridges": {
+    "Gauss": {
+      "describe_cmd": [
+        "gauss/gauss.py",
+        "describe",
+        "--json"
+      ],
+      "run": [
+        "gauss/gauss.py",
+        "run",
+        "{file}",
+        "--json"
+      ],
+      "example": "gauss/examples/namesake.gauss"
+    }
+  }
+}

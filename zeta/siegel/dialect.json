@@ -1,0 +1,30 @@
+{
+  "name": "Siegel",
+  "lower": "siegel",
+  "generation": 6,
+  "formerly": "Tabor",
+  "lineage_parents": [
+    "surd",
+    "Hardy",
+    "logos"
+  ],
+  "parents": [
+    "Hardy"
+  ],
+  "bridges": {
+    "Hardy": {
+      "describe_cmd": [
+        "hardy/hardy.py",
+        "describe",
+        "--json"
+      ],
+      "run": [
+        "hardy/hardy.py",
+        "run",
+        "{file}",
+        "--json"
+      ],
+      "example": "hardy/examples/namesake.hardy"
+    }
+  }
+}

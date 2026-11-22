@@ -1,0 +1,816 @@
+{
+ "meta": {
+  "lean": "4.36.0",
+  "scope": "Each theorem is about one finite formula or identity. None is about P vs NP."
+ },
+ "core": {
+  "file": "lean/PnpLab.lean",
+  "lean_version": "4.36.0",
+  "exit": 0,
+  "theorems": [
+   {
+    "theorem": "clause_is_or",
+    "axioms": [],
+    "uses_sorry": false,
+    "trust": "kernel only"
+   },
+   {
+    "theorem": "clause_expand",
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "uses_sorry": false,
+    "trust": "kernel + standard axioms"
+   },
+   {
+    "theorem": "round_identity",
+    "axioms": [],
+    "uses_sorry": false,
+    "trust": "kernel only"
+   },
+   {
+    "theorem": "count_example",
+    "axioms": [
+     "propext"
+    ],
+    "uses_sorry": false,
+    "trust": "kernel + standard axioms"
+   },
+   {
+    "theorem": "quadratic_few_roots",
+    "axioms": [
+     "propext"
+    ],
+    "uses_sorry": false,
+    "trust": "kernel + standard axioms"
+   },
+   {
+    "theorem": "php_3_2",
+    "axioms": [],
+    "uses_sorry": false,
+    "trust": "kernel only"
+   },
+   {
+    "theorem": "php_4_3",
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound",
+     "PnpLab.php_4_3._native.bv_decide.ax_1_5"
+    ],
+    "uses_sorry": false,
+    "trust": "kernel + SAT-certificate checker run natively"
+   },
+   {
+    "theorem": "xor_needs_four_leaves",
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "uses_sorry": false,
+    "trust": "kernel + standard axioms"
+   },
+   {
+    "theorem": "xor_has_four_leaves",
+    "axioms": [
+     "propext",
+     "Quot.sound"
+    ],
+    "uses_sorry": false,
+    "trust": "kernel + standard axioms"
+   }
+  ],
+  "errors": [],
+  "all_checked": true,
+  "seconds": 0.62,
+  "seconds_total": 0.64
+ },
+ "unsat": {
+  "rows": [
+   {
+    "family": "random 3-SAT",
+    "n": 60,
+    "clauses": 256,
+    "file": "lean/Unsat_n60.lean",
+    "lean_exit": 0,
+    "certified": true,
+    "lean_seconds": 0.31,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound",
+     "unsat_n60._native.bv_decide.ax_1_5"
+    ],
+    "search_nodes_my_solver": 50,
+    "note": null
+   },
+   {
+    "family": "random 3-SAT",
+    "n": 80,
+    "clauses": 341,
+    "file": "lean/Unsat_n80.lean",
+    "lean_exit": 0,
+    "certified": true,
+    "lean_seconds": 0.37,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound",
+     "unsat_n80._native.bv_decide.ax_1_5"
+    ],
+    "search_nodes_my_solver": 116,
+    "note": null
+   },
+   {
+    "family": "random 3-SAT",
+    "n": 100,
+    "clauses": 426,
+    "file": "lean/Unsat_n100.lean",
+    "lean_exit": 0,
+    "certified": true,
+    "lean_seconds": 0.43,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound",
+     "unsat_n100._native.bv_decide.ax_1_5"
+    ],
+    "search_nodes_my_solver": 256,
+    "note": null
+   },
+   {
+    "family": "random 3-SAT",
+    "n": 120,
+    "clauses": 511,
+    "file": "lean/Unsat_n120.lean",
+    "lean_exit": 0,
+    "certified": true,
+    "lean_seconds": 0.49,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound",
+     "unsat_n120._native.bv_decide.ax_1_5"
+    ],
+    "search_nodes_my_solver": 436,
+    "note": null
+   },
+   {
+    "family": "random 3-SAT",
+    "n": 140,
+    "clauses": 596,
+    "file": "lean/Unsat_n140.lean",
+    "lean_exit": 0,
+    "certified": true,
+    "lean_seconds": 0.57,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound",
+     "unsat_n140._native.bv_decide.ax_1_5"
+    ],
+    "search_nodes_my_solver": 847,
+    "note": null
+   },
+   {
+    "family": "random 3-SAT",
+    "n": 170,
+    "clauses": 724,
+    "file": "lean/Unsat_n170.lean",
+    "lean_exit": 0,
+    "certified": true,
+    "lean_seconds": 0.8,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound",
+     "unsat_n170._native.bv_decide.ax_1_5"
+    ],
+    "search_nodes_my_solver": 2103,
+    "note": null
+   },
+   {
+    "family": "random 3-SAT",
+    "n": 200,
+    "clauses": 852,
+    "file": "lean/Unsat_n200.lean",
+    "lean_exit": 0,
+    "certified": true,
+    "lean_seconds": 0.99,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound",
+     "unsat_n200._native.bv_decide.ax_1_5"
+    ],
+    "search_nodes_my_solver": 10147,
+    "note": null
+   },
+   {
+    "family": "random 3-SAT",
+    "n": 250,
+    "clauses": 1065,
+    "file": "lean/Unsat_n250.lean",
+    "lean_exit": 0,
+    "certified": true,
+    "lean_seconds": 4.37,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound",
+     "unsat_n250._native.bv_decide.ax_1_5"
+    ],
+    "search_nodes_my_solver": null,
+    "note": null
+   },
+   {
+    "family": "random 3-SAT",
+    "n": 300,
+    "clauses": 1278,
+    "file": "lean/Unsat_n300.lean",
+    "lean_exit": 0,
+    "certified": true,
+    "lean_seconds": 24.74,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound",
+     "unsat_n300._native.bv_decide.ax_1_5"
+    ],
+    "search_nodes_my_solver": null,
+    "note": null
+   },
+   {
+    "family": "pigeonhole",
+    "n": 30,
+    "holes": 5,
+    "clauses": 81,
+    "file": "lean/Php_6_5.lean",
+    "lean_exit": 0,
+    "certified": true,
+    "lean_seconds": 0.22,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound",
+     "php_6_5._native.bv_decide.ax_1_5"
+    ],
+    "note": null
+   },
+   {
+    "family": "pigeonhole",
+    "n": 42,
+    "holes": 6,
+    "clauses": 133,
+    "file": "lean/Php_7_6.lean",
+    "lean_exit": 0,
+    "certified": true,
+    "lean_seconds": 0.24,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound",
+     "php_7_6._native.bv_decide.ax_1_5"
+    ],
+    "note": null
+   },
+   {
+    "family": "pigeonhole",
+    "n": 56,
+    "holes": 7,
+    "clauses": 204,
+    "file": "lean/Php_8_7.lean",
+    "lean_exit": 0,
+    "certified": true,
+    "lean_seconds": 0.28,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound",
+     "php_8_7._native.bv_decide.ax_1_5"
+    ],
+    "note": null
+   },
+   {
+    "family": "pigeonhole",
+    "n": 72,
+    "holes": 8,
+    "clauses": 297,
+    "file": "lean/Php_9_8.lean",
+    "lean_exit": 0,
+    "certified": true,
+    "lean_seconds": 0.33,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound",
+     "php_9_8._native.bv_decide.ax_1_5"
+    ],
+    "note": null
+   },
+   {
+    "family": "pigeonhole",
+    "n": 90,
+    "holes": 9,
+    "clauses": 415,
+    "file": "lean/Php_10_9.lean",
+    "lean_exit": 0,
+    "certified": true,
+    "lean_seconds": 0.7,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound",
+     "php_10_9._native.bv_decide.ax_1_5"
+    ],
+    "note": null
+   },
+   {
+    "family": "pigeonhole",
+    "n": 110,
+    "holes": 10,
+    "clauses": 561,
+    "file": "lean/Php_11_10.lean",
+    "lean_exit": 0,
+    "certified": true,
+    "lean_seconds": 1.36,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound",
+     "php_11_10._native.bv_decide.ax_1_5"
+    ],
+    "note": null
+   }
+  ],
+  "certified": 15,
+  "attempted": 15,
+  "largest_random_n_certified": 300,
+  "trust": "Lean kernel plus the bv_decide axiom: a verified checker for the SAT solver's refutation, run as compiled code",
+  "budget_seconds": 270.0,
+  "used_seconds": 67.09,
+  "stopped_before": null,
+  "seconds_total": 67.09
+ },
+ "formal": {
+  "project": "formal/",
+  "exit": 0,
+  "theorems": [
+   {
+    "theorem": "size_le_leaves",
+    "uses_sorry": false,
+    "native_checks": 3,
+    "trust": "kernel + compiled finite checks"
+   },
+   {
+    "theorem": "parity_needs_16_leaves",
+    "uses_sorry": false,
+    "native_checks": 4,
+    "trust": "kernel + compiled finite checks"
+   },
+   {
+    "theorem": "parity_has_16_leaves",
+    "uses_sorry": false,
+    "native_checks": 0,
+    "trust": "kernel + standard axioms"
+   },
+   {
+    "theorem": "hardest_count",
+    "uses_sorry": false,
+    "native_checks": 1,
+    "trust": "kernel + compiled finite checks"
+   },
+   {
+    "theorem": "table_exact",
+    "uses_sorry": false,
+    "native_checks": 5,
+    "trust": "kernel + compiled finite checks"
+   },
+   {
+    "theorem": "every_function_fits_in_16",
+    "uses_sorry": false,
+    "native_checks": 5,
+    "trust": "kernel + compiled finite checks"
+   },
+   {
+    "theorem": "size_histogram",
+    "uses_sorry": false,
+    "native_checks": 1,
+    "trust": "kernel + compiled finite checks"
+   },
+   {
+    "theorem": "constant_needs_two",
+    "uses_sorry": false,
+    "native_checks": 0,
+    "trust": "kernel + standard axioms"
+   },
+   {
+    "theorem": "constants_have_two",
+    "uses_sorry": false,
+    "native_checks": 0,
+    "trust": "kernel + standard axioms"
+   },
+   {
+    "theorem": "xor2_exact",
+    "uses_sorry": false,
+    "native_checks": 6,
+    "trust": "kernel + compiled finite checks"
+   },
+   {
+    "theorem": "parity3_exact",
+    "uses_sorry": false,
+    "native_checks": 6,
+    "trust": "kernel + compiled finite checks"
+   },
+   {
+    "theorem": "majority3_exact",
+    "uses_sorry": false,
+    "native_checks": 6,
+    "trust": "kernel + compiled finite checks"
+   },
+   {
+    "theorem": "parity4_exact",
+    "uses_sorry": false,
+    "native_checks": 6,
+    "trust": "kernel + compiled finite checks"
+   },
+   {
+    "theorem": "largest_is_16",
+    "uses_sorry": false,
+    "native_checks": 2,
+    "trust": "kernel + compiled finite checks"
+   },
+   {
+    "theorem": "Poly.eval_quot",
+    "uses_sorry": false,
+    "native_checks": 0,
+    "trust": "kernel + standard axioms"
+   },
+   {
+    "theorem": "Poly.roots_le_degree",
+    "uses_sorry": false,
+    "native_checks": 0,
+    "trust": "kernel + standard axioms"
+   },
+   {
+    "theorem": "Poly.euclid_seven",
+    "uses_sorry": false,
+    "native_checks": 0,
+    "trust": "kernel + standard axioms"
+   },
+   {
+    "theorem": "Poly.roots_le_degree_mod7",
+    "uses_sorry": false,
+    "native_checks": 0,
+    "trust": "kernel + standard axioms"
+   },
+   {
+    "theorem": "p61_prime",
+    "uses_sorry": false,
+    "native_checks": 1,
+    "trust": "kernel + compiled finite checks"
+   },
+   {
+    "theorem": "roots_le_degree_p61",
+    "uses_sorry": false,
+    "native_checks": 1,
+    "trust": "kernel + compiled finite checks"
+   },
+   {
+    "theorem": "roots_le_degree_p31",
+    "uses_sorry": false,
+    "native_checks": 1,
+    "trust": "kernel + compiled finite checks"
+   },
+   {
+    "theorem": "SumCheck.roots_le_of_exists",
+    "uses_sorry": false,
+    "native_checks": 0,
+    "trust": "kernel + standard axioms"
+   },
+   {
+    "theorem": "SumCheck.soundness",
+    "uses_sorry": false,
+    "native_checks": 0,
+    "trust": "kernel + standard axioms"
+   },
+   {
+    "theorem": "SumCheck.completeness",
+    "uses_sorry": false,
+    "native_checks": 0,
+    "trust": "kernel + standard axioms"
+   },
+   {
+    "theorem": "SumCheck.soundness_p61",
+    "uses_sorry": false,
+    "native_checks": 1,
+    "trust": "kernel + compiled finite checks"
+   },
+   {
+    "theorem": "SumCheck.soundness_p61_le",
+    "uses_sorry": false,
+    "native_checks": 1,
+    "trust": "kernel + compiled finite checks"
+   },
+   {
+    "theorem": "SumCheck.lab_error_bound",
+    "uses_sorry": false,
+    "native_checks": 0,
+    "trust": "kernel only"
+   },
+   {
+    "theorem": "SumCheck.demo_sound",
+    "uses_sorry": false,
+    "native_checks": 0,
+    "trust": "kernel + standard axioms"
+   },
+   {
+    "theorem": "SumCheck.demo_honest",
+    "uses_sorry": false,
+    "native_checks": 0,
+    "trust": "kernel + standard axioms"
+   },
+   {
+    "theorem": "SumCheck.demo_cheat",
+    "uses_sorry": false,
+    "native_checks": 0,
+    "trust": "kernel + standard axioms"
+   },
+   {
+    "theorem": "Maj5.gate_count",
+    "uses_sorry": false,
+    "native_checks": 0,
+    "trust": "kernel only"
+   },
+   {
+    "theorem": "Maj5.well_formed",
+    "uses_sorry": false,
+    "native_checks": 0,
+    "trust": "kernel only"
+   },
+   {
+    "theorem": "Maj5.all_real_gates",
+    "uses_sorry": false,
+    "native_checks": 0,
+    "trust": "kernel only"
+   },
+   {
+    "theorem": "Maj5.computes_majority_of_five",
+    "uses_sorry": false,
+    "native_checks": 0,
+    "trust": "kernel + standard axioms"
+   }
+  ],
+  "all_checked": true,
+  "build_seconds": 9.56,
+  "functions_with_a_construction": 65526,
+  "lean_version": "4.36.0",
+  "seconds_total": 11.49
+ },
+ "tamper": {
+  "rows": [
+   {
+    "corruption": "untouched copy (positive control)",
+    "positive_control": true,
+    "lean_exit": 0,
+    "rejected": false,
+    "expected_check_to_fail": null,
+    "files_named_in_errors": [],
+    "rejected_for_the_stated_reason": false,
+    "error_lines": [],
+    "seconds": 33.7
+   },
+   {
+    "corruption": "entry for x0 XOR x1 raised from 4 to 5",
+    "positive_control": false,
+    "lean_exit": 1,
+    "rejected": true,
+    "expected_check_to_fail": "closed_ok",
+    "files_named_in_errors": [
+     "PnpFormal/Parity.lean"
+    ],
+    "rejected_for_the_stated_reason": true,
+    "error_lines": [
+     "error: PnpFormal/Parity.lean:20:45: Tactic `native_decide` evaluated that the proposition",
+     "error: build failed"
+    ],
+    "seconds": 4.5
+   },
+   {
+    "corruption": "entry for parity lowered from 16 to 15",
+    "positive_control": false,
+    "lean_exit": 1,
+    "rejected": true,
+    "expected_check_to_fail": "build_ok",
+    "files_named_in_errors": [
+     "PnpFormal/Parity.lean"
+    ],
+    "rejected_for_the_stated_reason": true,
+    "error_lines": [
+     "error: PnpFormal/Parity.lean:139:45: Tactic `native_decide` evaluated that the proposition",
+     "error: PnpFormal/Parity.lean:159:47: Tactic `native_decide` evaluated that the proposition",
+     "error: build failed"
+    ],
+    "seconds": 8.9
+   }
+  ],
+  "positive_control_built": true,
+  "all_for_the_stated_reason": true,
+  "all_rejected": true,
+  "seconds_total": 47.22
+ },
+ "circuits": {
+  "rows": [
+   {
+    "class": "0x0116",
+    "variables": 224,
+    "clauses": 7679,
+    "certified": true,
+    "lean_seconds": 13.3
+   },
+   {
+    "class": "0x0117",
+    "variables": 224,
+    "clauses": 7679,
+    "certified": true,
+    "lean_seconds": 11.9
+   },
+   {
+    "class": "0x066B",
+    "variables": 224,
+    "clauses": 7679,
+    "certified": true,
+    "lean_seconds": 11.9
+   },
+   {
+    "class": "0x0779",
+    "variables": 224,
+    "clauses": 7679,
+    "certified": true,
+    "lean_seconds": 11.2
+   },
+   {
+    "class": "0x166A",
+    "variables": 224,
+    "clauses": 7679,
+    "certified": true,
+    "lean_seconds": 12.8
+   },
+   {
+    "class": "0x1681",
+    "variables": 224,
+    "clauses": 7679,
+    "certified": true,
+    "lean_seconds": 12.8
+   },
+   {
+    "class": "0x168B",
+    "variables": 224,
+    "clauses": 7679,
+    "certified": true,
+    "lean_seconds": 11.8
+   },
+   {
+    "class": "0x168E",
+    "variables": 224,
+    "clauses": 7679,
+    "certified": true,
+    "lean_seconds": 11.6
+   },
+   {
+    "class": "0x1698",
+    "variables": 224,
+    "clauses": 7679,
+    "certified": true,
+    "lean_seconds": 11.9
+   },
+   {
+    "class": "0x169B",
+    "variables": 224,
+    "clauses": 7679,
+    "certified": true,
+    "lean_seconds": 11.6
+   },
+   {
+    "class": "0x16AC",
+    "variables": 224,
+    "clauses": 7679,
+    "certified": true,
+    "lean_seconds": 12.0
+   },
+   {
+    "class": "0x179A",
+    "variables": 224,
+    "clauses": 7679,
+    "certified": true,
+    "lean_seconds": 12.3
+   }
+  ],
+  "certified": 12,
+  "classes_needing_7_gates": 12,
+  "scope": "Lean checks the solver's refutation of the encoding; the encoding's meaning is the lab's construction",
+  "budget_seconds": 420.0,
+  "used_seconds": 145.1,
+  "stopped_before": null,
+  "seconds_total": 145.11
+ },
+ "recheck": {
+  "rows": [
+   {
+    "checker": "leanchecker (Lean's kernel, replaying the compiled modules)",
+    "passed": true,
+    "detail": "no complaints",
+    "seconds": 2.3
+   },
+   {
+    "checker": "lean4lean",
+    "passed": null,
+    "detail": "could not read these files (incompatible header): not a verdict",
+    "seconds": 1.4
+   },
+   {
+    "checker": "nanoda (independent kernel, Rust)",
+    "passed": true,
+    "declarations_checked": 60375,
+    "detail": "Checked 60375 declarations with no typechecker errors, 1 pretty printer errors: [",
+    "seconds": 33.8,
+    "export_megabytes": 351
+   }
+  ],
+  "independent_checkers_passed": 2,
+  "no_verdict": 1,
+  "failed": 0,
+  "seconds_total": 37.48
+ },
+ "maj5": {
+  "gates": 9,
+  "theorems": [
+   {
+    "theorem": "gate_count",
+    "axioms": [],
+    "uses_sorry": false
+   },
+   {
+    "theorem": "well_formed",
+    "axioms": [],
+    "uses_sorry": false
+   },
+   {
+    "theorem": "all_real_gates",
+    "axioms": [],
+    "uses_sorry": false
+   },
+   {
+    "theorem": "computes_majority_of_five",
+    "axioms": [
+     "propext"
+    ],
+    "uses_sorry": false
+   }
+  ],
+  "all_checked": true,
+  "seconds": 0.4,
+  "corrupted_circuit_rejected": true,
+  "corrupted_error_lines": [
+   "/tmp/claude-501/tmpb41uovna.lean:61:2: error: Tactic `decide` proved that the proposition"
+  ],
+  "scope": "upper bound only: the circuit is correct on all 32 inputs",
+  "seconds_total": 0.56
+ },
+ "fn5": {
+  "function": "0xE8060670",
+  "gates": 9,
+  "theorems": [
+   {
+    "theorem": "gate_count",
+    "axioms": [],
+    "uses_sorry": false
+   },
+   {
+    "theorem": "well_formed",
+    "axioms": [],
+    "uses_sorry": false
+   },
+   {
+    "theorem": "all_real_gates",
+    "axioms": [],
+    "uses_sorry": false
+   },
+   {
+    "theorem": "computes_the_function",
+    "axioms": [
+     "propext"
+    ],
+    "uses_sorry": false
+   }
+  ],
+  "all_checked": true,
+  "seconds": 0.4,
+  "corrupted_circuit_rejected": true,
+  "scope": "upper bound only: the circuit is correct on all 32 inputs",
+  "seconds_total": 0.53
+ }
+}

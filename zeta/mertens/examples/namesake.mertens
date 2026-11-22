@@ -1,0 +1,5 @@
+# Namesake ability of Mertens: the Mertens function. Finite checks of known values.
+print "M(1000) =", mertens(1000)
+expect mertens(1000) == 2
+expect mobius(30) == 0 - 1
+expect mobius(12) == 0

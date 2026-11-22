@@ -1,0 +1,4 @@
+# Namesake ability of Euler: the Euler product. Finite checks of known values.
+print "product over 2, 3, 5, 7 at s = 2:", euler_product(2, 10)
+expect euler_product(2, 10) == 1225 / 768
+expect len(primes_to(100)) == 25

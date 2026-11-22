@@ -1,0 +1,4 @@
+# Namesake ability of Siegel: the Riemann-Siegel correction terms. Finite checks of known values.
+print "Z(100) with C0:", siegel_z(100, 0), "with C0..C4:", siegel_z(100, 4)
+expect abs(siegel_z(100, 4) - 2.692697057) < 1 / 10000000
+expect abs(siegel_term(0, 1 / 2) - 0.382683432365) < 1 / 100000000000

@@ -1,0 +1,45 @@
+{
+  "name": "Mertens",
+  "lower": "mertens",
+  "generation": 4,
+  "formerly": "Siloam",
+  "lineage_parents": [
+    "unmask",
+    "Riemann",
+    "Gauss"
+  ],
+  "parents": [
+    "Riemann",
+    "Gauss"
+  ],
+  "bridges": {
+    "Riemann": {
+      "describe_cmd": [
+        "riemann/riemann.py",
+        "describe",
+        "--json"
+      ],
+      "run": [
+        "riemann/riemann.py",
+        "run",
+        "{file}",
+        "--json"
+      ],
+      "example": "riemann/examples/namesake.riemann"
+    },
+    "Gauss": {
+      "describe_cmd": [
+        "gauss/gauss.py",
+        "describe",
+        "--json"
+      ],
+      "run": [
+        "gauss/gauss.py",
+        "run",
+        "{file}",
+        "--json"
+      ],
+      "example": "gauss/examples/namesake.gauss"
+    }
+  }
+}

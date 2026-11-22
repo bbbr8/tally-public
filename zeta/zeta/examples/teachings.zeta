@@ -1,0 +1,50 @@
+# A tour of the six teachings. Every name and amount here is a FIXTURE, not a case finding.
+
+# 1. witness — "In the mouth of two or three witnesses shall every word be established" (2 Cor 13:1)
+fact invoice = $1,200.00 by "VENDOR_0001"
+fact cheque  = $1,200.00 by "BANK_0042", "VENDOR_0001"
+judge invoice                     # one family: awaits a second witness
+judge cheque                      # two families: established
+let both = invoice + cheque
+judge both                        # computed values carry their facts with them
+expect not established(both)
+
+# 2. atonement — who bore whose debt is recorded forever
+owe "Builder" -> "Lumber Yard" $5,000.00 for "framing package" as framing
+pay "Builder" on framing $1,000.00
+pay "Owner" on framing $3,000.00 by "BANK_0050"
+forgive framing $500.00
+ledger
+expect borne(framing) == $3,000.00
+expect outstanding(framing) == $500.00
+expect borne_by("Owner") == $3,000.00
+
+# 3. fruits — "By their fruits ye shall know them" (Matt 7:16)
+fruits use {
+  "land"      when contains(v.memo, "TITLE")
+  "materials" when contains(v.memo, "LUMBER") or contains(v.memo, "ELECTRIC")
+}
+let payment = {"memo": "WIRE TO TITLE CO", "amount": $40,000.00} called "materials"
+discern payment with use
+expect know(payment, use).verdict == "NAME_CONTRADICTED_BY_FRUITS"
+
+# 4. grace — a failing line is forgiven and recorded; the block goes on
+grace {
+  let rate = $40,000.00 / 0
+  print "the block went on"
+}
+for c in confessions() { print "forgiven at line", c.line, c.code, c.error }
+
+# 5. parable — a surface and a depth
+let lot = "the lot" meaning "the land, and who controlled it"
+reveal lot
+
+# 6. restore — nothing bound is lost
+let balance = $100.00
+balance = $40.00
+forsake balance
+restore balance
+print "balance", balance, "· values it has held:", len(history("balance"))
+
+# the lost sheep — which one item keeps the books from closing (Luke 15:4)
+print seek([$1,000.00, $250.00, $75.25, $4,000.00], $5,250.00)

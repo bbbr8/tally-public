@@ -1,0 +1,30 @@
+{
+  "name": "Gauss",
+  "lower": "gauss",
+  "generation": 2,
+  "formerly": "Bethany",
+  "lineage_parents": [
+    "tally",
+    "Euler",
+    "spectra"
+  ],
+  "parents": [
+    "Euler"
+  ],
+  "bridges": {
+    "Euler": {
+      "describe_cmd": [
+        "euler/euler.py",
+        "describe",
+        "--json"
+      ],
+      "run": [
+        "euler/euler.py",
+        "run",
+        "{file}",
+        "--json"
+      ],
+      "example": "euler/examples/namesake.euler"
+    }
+  }
+}

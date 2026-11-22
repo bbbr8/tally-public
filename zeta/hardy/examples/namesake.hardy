@@ -1,0 +1,4 @@
+# Namesake ability of Hardy: the Z-function. Finite checks of known values.
+print "Z(14) =", hardy_z(14), "Z(15) =", hardy_z(15)
+expect hardy_z(14) < 0 and hardy_z(15) > 0
+expect abs(hardy_theta(18) - 0.080910757) < 1 / 100000000

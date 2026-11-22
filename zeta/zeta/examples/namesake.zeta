@@ -1,0 +1,6 @@
+# Namesake ability of Zeta: values of zeta on the real line. Finite checks of known values.
+print "zeta(2) =", zeta(2)
+expect zeta_over_pi(1) == 1 / 6
+expect zeta(0 - 1) == 0 - 1 / 12
+expect zeta(0 - 2) == 0
+expect bernoulli(12) == 0 - 691 / 2730

@@ -1,0 +1,30 @@
+{
+  "name": "Hardy",
+  "lower": "hardy",
+  "generation": 5,
+  "formerly": "Hebron",
+  "lineage_parents": [
+    "logos",
+    "Mertens",
+    "strata"
+  ],
+  "parents": [
+    "Mertens"
+  ],
+  "bridges": {
+    "Mertens": {
+      "describe_cmd": [
+        "mertens/mertens.py",
+        "describe",
+        "--json"
+      ],
+      "run": [
+        "mertens/mertens.py",
+        "run",
+        "{file}",
+        "--json"
+      ],
+      "example": "mertens/examples/namesake.mertens"
+    }
+  }
+}

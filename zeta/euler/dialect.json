@@ -1,0 +1,30 @@
+{
+  "name": "Euler",
+  "lower": "euler",
+  "generation": 1,
+  "formerly": "Cana",
+  "lineage_parents": [
+    "zeta",
+    "tally",
+    "warrant"
+  ],
+  "parents": [
+    "zeta"
+  ],
+  "bridges": {
+    "zeta": {
+      "describe_cmd": [
+        "zeta/zeta.py",
+        "describe",
+        "--json"
+      ],
+      "run": [
+        "zeta/zeta.py",
+        "run",
+        "{file}",
+        "--json"
+      ],
+      "example": "zeta/examples/namesake.zeta"
+    }
+  }
+}

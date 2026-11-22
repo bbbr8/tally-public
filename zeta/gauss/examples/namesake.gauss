@@ -1,0 +1,4 @@
+# Namesake ability of Gauss: the prime count and li(x). Finite checks of known values.
+print "primes up to 1000:", prime_count(1000), "li(1000) =", li(1000)
+expect prime_count(1000) == 168
+expect li(1000) > 177 and li(1000) < 178
