@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Zeta — a programming language whose rules are taken from the teachings of Jesus Christ.
+"""Zeta — the base language of the Zeta language family. Its rules are taken from the teachings of Jesus Christ.
 
 A general-purpose language (functions, closures, if/while/for, lists, maps, exact numbers, exact money, dates)
 whose built-in semantics are six teachings, each one a rule the interpreter enforces:
@@ -62,7 +62,7 @@ ERRORS = {
     "A-E010": "wrong number of arguments",
     "A-E011": "index or key missing",
     "A-E012": "unknown fruits classifier",
-    "A-E013": "language is not a grafted parent",
+    "A-E013": "language is not a configured parent",
     "A-E014": "parent language call failed",
 }
 
@@ -1486,10 +1486,10 @@ def install_builtins(it):
                 return x
         return q.items[-1]
 
-    # ---- graft: a dialect calls its parent languages through their own JSON interfaces
+    # A dialect calls its parent languages through their JSON interfaces.
     def _need_parent(name):
         if it.dialect is None:
-            raise err("A-E013", f"{name} is not grafted here", "parent calls work inside a vine branch (a dialect)")
+            raise err("A-E013", f"{name} is not a configured parent", "parent calls require a Zeta dialect with a configured parent")
         if name not in it.dialect["parents"]:
             raise err("A-E013", f"{name} is not a parent of {it.dialect['name']}",
                       "parents: " + ", ".join(it.dialect["parents"]))
@@ -1526,7 +1526,7 @@ def install_builtins(it):
         n = show(name)
         br = _need_parent(n)
         if not br.get("run"):
-            raise err("A-E014", f"{n} has no JSON run interface", "use parent_describe, or graft a language that runs")
+            raise err("A-E014", f"{n} has no JSON run interface", "use parent_describe or select a parent that supports run")
         ext = {"surd": ".surd", "tally": ".tly", "logos": ".logos", "zeta": ".zeta", "rico": ".rico",
                "warrant": ".wrt"}.get(n, ".txt")
         with tempfile.NamedTemporaryFile("w", encoding="utf-8", suffix=ext, delete=False) as f:
@@ -1571,7 +1571,7 @@ def from_json(x):
 
 # ------------------------------------------------------------------ describe
 DESCRIBE = {
-    "language": "Zeta", "formerly": "Atone", "version": VERSION, "file_extension": ".zeta",
+    "language": "Zeta", "family": "Zeta language family", "formerly": "Atone", "version": VERSION, "file_extension": ".zeta",
     "one_idea": "the teachings of Jesus Christ as language rules: witnesses establish, debts record who bore them, "
                 "things are known by their fruits, errors are forgiven under grace and recorded",
     "statements": {
@@ -1656,7 +1656,7 @@ SELFTEST = [
      'print probs(s)["f"], probs(s)["a"]', ["0.9453125 0.0078125"], None),
     ("Grover: 1 of 4 is certain after 1 step", 'let s = amplify(superpose(["a", "b", "c", "d"]), fn(x) { return x == "c" })\n'
      'print measure(s, 7), probs(s)["c"]', ["c 1"], None),
-    ("parent calls need a graft", 'print parent_describe("tally")', None, "A-E013"),
+    ("parent calls need a configured parent", 'print parent_describe("tally")', None, "A-E013"),
 ]
 
 def run_capture(src):
@@ -1729,12 +1729,12 @@ def run_program(path, as_json, dialect=None):
 
 
 def dialect_main(dialect_path, argv):
-    """Entry point for a vine branch: a Zeta dialect grafted on its parent languages."""
+    """Run a dialect of the Zeta language family."""
     with open(dialect_path, encoding="utf-8") as f:
         d = json.load(f)
     name = d["name"]
     if not argv or argv[0] in ("-h", "--help", "help"):
-        print(f"{name} {d.get('version', '0.1.0')} — generation {d['generation']} branch of the Zeta vine, grafted on "
+        print(f"{name} {d.get('version', '0.1.0')} — generation {d['generation']} dialect in the Zeta language family with parents "
               f"{', '.join(d['parents'])}.\n  {d['lower']} run FILE [--json] · check FILE · selftest · describe [--json] · version")
         return 0
     cmd, rest = argv[0], argv[1:]
@@ -1742,7 +1742,7 @@ def dialect_main(dialect_path, argv):
         print(f"{name} 0.1.0 (Zeta {VERSION})")
         return 0
     if cmd == "describe":
-        out = {"language": name, "dialect_of": "Zeta", "zeta_version": VERSION, "atone_version": VERSION, **d, "zeta": DESCRIBE}
+        out = {"language": name, "family": DESCRIBE["family"], "dialect_of": "Zeta", "zeta_version": VERSION, "atone_version": VERSION, **d, "zeta": DESCRIBE}
         ab = load_ability(os.path.dirname(os.path.abspath(dialect_path)))
         if ab is not None:
             out["ability"] = ab.ABOUT

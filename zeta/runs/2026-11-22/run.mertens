@@ -1,0 +1,19 @@
+# Mertens function against published values; M(n)^2 < n is the exact form of |M(n)| < sqrt(n).
+print "M(10) =", mertens(10)
+print "M(100) =", mertens(100)
+print "M(1000) =", mertens(1000)
+print "M(10000) =", mertens(10000)
+print "M(100000) =", mertens(100000)
+print "M(1000000) =", mertens(1000000)
+print "M(10000000) =", mertens(10000000)
+expect mertens(10) == 0 - 1
+expect mertens(100) == 1
+expect mertens(1000) == 2
+expect mertens(10000) == 0 - 23
+expect mertens(100000) == 0 - 48
+expect mertens(1000000) == 212
+expect mertens(10000000) == 1037
+let e = mertens_extreme(2, 10000000)
+print "largest |M(m)|/sqrt(m) for 2 <= m <= 10000000 is at m =", e[0], "with M(m) =", e[1]
+print "M(m)^2 =", e[1] * e[1], "against m =", e[0]
+expect e[1] * e[1] < e[0]

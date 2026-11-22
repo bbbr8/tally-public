@@ -16,7 +16,7 @@ ABOUT = {
     "namesake": "Bernhard Riemann, 1859: the primes are determined by the zeros of zeta",
     "ability": "the explicit formula: primes rebuilt from zeros",
     "builtins": {
-        "zeta_zeros": "zeta_zeros(n): heights of the first n zeros on the critical line, n <= 200, to 12 decimals",
+        "zeta_zeros": "zeta_zeros(n): approximate critical-line zero heights from sign changes of the Riemann–Siegel approximation, 1 <= n <= 200, rounded to 12 decimal places",
         "chebyshev_psi": "chebyshev_psi(x): the sum of ln p over prime powers p^k <= x, to 30 decimals",
         "explicit_psi": "explicit_psi(x, n): the explicit formula for psi(x) using the first n zeros, x > 1, n <= 200"
     }

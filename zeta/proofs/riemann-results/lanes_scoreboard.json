@@ -1,0 +1,231 @@
+{
+ "reference_sha256": "aa14af59809c8254",
+ "rows": [
+  {
+   "language": "surd",
+   "family": "full battery",
+   "pass": true,
+   "exit": 0,
+   "seconds": 1.46,
+   "headline": "all three checks; zeros within 0.0000000047",
+   "expected_independent": "T1, T2 exact; ten zeros within 0.02 of truth",
+   "programs": [
+    "rh_surd.surd"
+   ],
+   "programs_sha256": "89bb67c5f2da97af",
+   "extra": {}
+  },
+  {
+   "language": "qulap",
+   "family": "lane",
+   "pass": true,
+   "exit": 0,
+   "seconds": 0.94,
+   "headline": "448 Farey neighbour pairs, 0 counterexamples",
+   "expected_independent": "448 pairs by sorting fractions",
+   "programs": [
+    "rh_qulap.json"
+   ],
+   "programs_sha256": "f30ccf4b7657194c",
+   "extra": {}
+  },
+  {
+   "language": "choiceweave",
+   "family": "lane",
+   "pass": true,
+   "exit": 0,
+   "seconds": 0.03,
+   "headline": "best on speed and accuracy: Loom and Tally",
+   "expected_independent": "Pareto set ['Loom', 'Tally']",
+   "programs": [
+    "rh_choiceweave.ch"
+   ],
+   "programs_sha256": "5bcc7f2e4d1b2645",
+   "extra": {}
+  },
+  {
+   "language": "trialweave",
+   "family": "lane",
+   "pass": true,
+   "exit": 0,
+   "seconds": 0.03,
+   "headline": "10 zeros below 50 stands; 9 and 11 fall",
+   "expected_independent": "10 true zeros below 50",
+   "programs": [
+    "rh_trialweave.tw"
+   ],
+   "programs_sha256": "fe637d925d2df02a",
+   "extra": {}
+  },
+  {
+   "language": "bridgeweave",
+   "family": "lane",
+   "pass": true,
+   "exit": 0,
+   "seconds": 0.03,
+   "headline": "19 of 19 order relations kept",
+   "expected_independent": "nearest true zero keeps the order for all ten",
+   "programs": [
+    "rh_bridgeweave.bw"
+   ],
+   "programs_sha256": "ed2fe7f9c0fad665",
+   "extra": {}
+  },
+  {
+   "language": "tempoweave",
+   "family": "lane",
+   "pass": true,
+   "exit": 0,
+   "seconds": 0.03,
+   "headline": "all 12 runs end to end: 27.23 s",
+   "expected_independent": "sum of seconds 2723/100",
+   "programs": [
+    "rh_tempoweave.tempo"
+   ],
+   "programs_sha256": "7d33f96674519bef",
+   "extra": {}
+  },
+  {
+   "language": "measureweave",
+   "family": "lane",
+   "pass": true,
+   "exit": 0,
+   "seconds": 0.03,
+   "headline": "Farey total at n = 5 is exactly 11/30",
+   "expected_independent": "11/30",
+   "programs": [
+    "rh_measureweave.mw"
+   ],
+   "programs_sha256": "5d3b79a894beeef2",
+   "extra": {}
+  },
+  {
+   "language": "boundweave",
+   "family": "lane",
+   "pass": true,
+   "exit": 0,
+   "seconds": 0.11,
+   "headline": "0 counterexamples in 2,500 assignments",
+   "expected_independent": "0 (the step keeps b\u00b7c \u2212 a\u00b7d)",
+   "programs": [
+    "rh_boundweave.bnd"
+   ],
+   "programs_sha256": "4294ce079fdc7b29",
+   "extra": {}
+  },
+  {
+   "language": "bootstrap",
+   "family": "lane",
+   "pass": true,
+   "exit": 0,
+   "seconds": 0.13,
+   "headline": "2 identities proved; 1 false formula refused",
+   "expected_independent": "2 identities; M(n) is no polynomial",
+   "programs": [
+    "rh_bootstrap_farey_invariant.boot",
+    "rh_bootstrap_mertens_discover.boot"
+   ],
+   "programs_sha256": "7e89444f9c21074d",
+   "extra": {}
+  },
+  {
+   "language": "bootstrap-libraries",
+   "family": "lane",
+   "pass": true,
+   "exit": 0,
+   "seconds": 0.08,
+   "headline": "6 identities proved; 1 false law refused",
+   "expected_independent": "swap law is false (sign flips); 5 tail values",
+   "programs": [
+    "rh_bootstrap_libraries_farey_step.boot",
+    "rh_bootstrap_libraries_horner_reuse.boot"
+   ],
+   "programs_sha256": "91c3d325deae5ffd",
+   "extra": {}
+  },
+  {
+   "language": "foundry",
+   "family": "lane",
+   "pass": true,
+   "exit": 0,
+   "seconds": 0.06,
+   "headline": "audit passed; kept the 'baseline' form",
+   "expected_independent": "4 held-back values by fractions",
+   "programs": [
+    "rh_foundry_siegel_forms.fdy",
+    "rh_foundry_siegel_forms_baseline.boot"
+   ],
+   "programs_sha256": "470d9091f64c2fb3",
+   "extra": {}
+  },
+  {
+   "language": "warrant",
+   "family": "lane",
+   "pass": true,
+   "exit": 0,
+   "seconds": 0.03,
+   "headline": "stands on {A, D} or {A, B, C}",
+   "expected_independent": "minimal supports [['A', 'D'], ['A', 'B', 'C']]",
+   "programs": [
+    "rh_warrant.wrt"
+   ],
+   "programs_sha256": "813f7ab9a4c4b663",
+   "extra": {}
+  },
+  {
+   "language": "concord",
+   "family": "lane",
+   "pass": true,
+   "exit": 0,
+   "seconds": 0.04,
+   "headline": "36 results give STANDS; one FAIL gives AGAINST",
+   "expected_independent": "all 36 PASS, so STANDS; any FAIL, AGAINST",
+   "programs": [
+    "rh_concord.concord",
+    "rh_concord_mappings.json",
+    "rh_concord_envelopes.json",
+    "rh_concord_envelopes_flipped.json"
+   ],
+   "programs_sha256": "ab4bf5083f33a589",
+   "extra": {}
+  },
+  {
+   "language": "sudoku",
+   "family": "lane",
+   "pass": true,
+   "exit": 0,
+   "seconds": 0.17,
+   "headline": "1 ordered match of zeros; 8 if unordered",
+   "expected_independent": "exhaustive counts [1, 1, 8]",
+   "programs": [
+    "rh_sudoku.mecl",
+    "rh_sudoku_full.json",
+    "rh_sudoku_order_only.json",
+    "rh_sudoku_loose_no_order.json",
+    "rh_sudoku_tight.json"
+   ],
+   "programs_sha256": "38ce71170b3a49af",
+   "extra": {
+    "engine": [
+     1,
+     1,
+     8,
+     1
+    ],
+    "exhaustive": [
+     1,
+     1,
+     8,
+     0
+    ]
+   }
+  }
+ ],
+ "defects": [
+  {
+   "language": "sudoku",
+   "what": "world count ignores a contradicted cell",
+   "detail": "with the tolerance tightened to 0.0075 the engine prints 1 feasible world; an exhaustive count gives 0"
+  }
+ ]
+}

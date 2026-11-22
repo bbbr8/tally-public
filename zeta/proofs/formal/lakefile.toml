@@ -1,0 +1,6 @@
+name = "PnpFormal"
+defaultTargets = ["PnpFormal"]
+
+[[lean_lib]]
+name = "PnpFormal"
+precompileModules = true

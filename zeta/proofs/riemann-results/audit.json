@@ -1,0 +1,26 @@
+{
+ "date": "2026-11-22",
+ "battery_same": 13,
+ "battery_runs": 13,
+ "battery_detail": {
+  "tally": true,
+  "spoor": true,
+  "blindfold": true,
+  "loom_signsafe": true,
+  "loom_naive": true,
+  "surd": true,
+  "zeta": true,
+  "euler": true,
+  "gauss": true,
+  "riemann": true,
+  "mertens": true,
+  "hardy": true,
+  "siegel": true
+ },
+ "later_pass": {
+  "explicit_check.py": true,
+  "advanced_check.py": true
+ },
+ "sudoku_tight_now": 0,
+ "loom_tolerance_notes": 104
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gauss — generation 2 branch of the Zeta vine, with prime counting and the logarithmic integral.
+"""Gauss — generation 2 dialect in the Zeta language family, with prime counting and the logarithmic integral.
 
     gauss run FILE [--json] · gauss check FILE · gauss selftest · gauss describe [--json] · gauss version
 """

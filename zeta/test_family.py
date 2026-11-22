@@ -22,9 +22,14 @@ class FamilyTests(unittest.TestCase):
     def test_renamed_launchers_run_namesake_examples(self):
         for name in LANGUAGES:
             with self.subTest(name=name):
+                help_result = run_cli(name, '--help')
+                self.assertEqual(help_result.returncode, 0, help_result.stderr)
+                self.assertIn('Zeta language family', help_result.stdout)
                 description = run_cli(name, 'describe', '--json')
                 self.assertEqual(description.returncode, 0, description.stderr)
-                self.assertEqual(json.loads(description.stdout)['language'], name.title())
+                metadata = json.loads(description.stdout)
+                self.assertEqual(metadata['language'], name.title())
+                self.assertEqual(metadata['family'], 'Zeta language family')
 
                 example = ROOT / name / 'examples' / f'namesake.{name}'
                 result = run_cli(name, 'run', example, '--json')

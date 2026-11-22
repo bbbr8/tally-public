@@ -1,0 +1,6 @@
+print "Z(14) =", hardy_z(14), " Z(14.2) =", hardy_z(14 + 1 / 5)
+print "Z(21) =", hardy_z(21), " Z(21.1) =", hardy_z(21 + 1 / 10)
+print "Z(25) =", hardy_z(25), " Z(25.1) =", hardy_z(25 + 1 / 10)
+expect hardy_z(14) * hardy_z(14 + 1 / 5) < 0
+expect hardy_z(21) * hardy_z(21 + 1 / 10) < 0
+expect hardy_z(25) * hardy_z(25 + 1 / 10) < 0

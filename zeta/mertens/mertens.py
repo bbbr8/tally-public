@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Mertens — generation 4 branch of the Zeta vine, with Möbius and Mertens functions.
+"""Mertens — generation 4 dialect in the Zeta language family, with Möbius and Mertens functions.
 
     mertens run FILE [--json] · mertens check FILE · mertens selftest · mertens describe [--json] · mertens version
 """

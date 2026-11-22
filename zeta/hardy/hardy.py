@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Hardy — generation 5 branch of the Zeta vine, with Hardy's Z-function and theta function.
+"""Hardy — generation 5 dialect in the Zeta language family, with Hardy's Z-function and theta function.
 
     hardy run FILE [--json] · hardy check FILE · hardy selftest · hardy describe [--json] · hardy version
 """

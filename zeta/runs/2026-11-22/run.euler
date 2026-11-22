@@ -1,0 +1,1 @@
+print "Euler product at s = 2 over primes <= 100:", euler_product(2, 100)

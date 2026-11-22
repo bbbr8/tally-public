@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Euler — generation 1 branch of the Zeta vine, with finite Euler products and primes.
+"""Euler — generation 1 dialect in the Zeta language family, with finite Euler products and primes.
 
     euler run FILE [--json] · euler check FILE · euler selftest · euler describe [--json] · euler version
 """

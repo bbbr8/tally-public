@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Riemann — generation 3 branch of the Zeta vine, with tabulated zeros and the explicit formula.
+"""Riemann — generation 3 dialect in the Zeta language family, with approximate zero heights and the explicit formula.
 
     riemann run FILE [--json] · riemann check FILE · riemann selftest · riemann describe [--json] · riemann version
 """

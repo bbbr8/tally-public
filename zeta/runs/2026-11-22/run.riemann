@@ -1,0 +1,7 @@
+let z = zeta_zeros(5)
+print "first five zeros:", z
+expect abs(z[0] - 14.134725141734) < 1 / 100000000000
+expect abs(z[1] - 21.022039638771) < 1 / 100000000000
+expect abs(z[2] - 25.010857580145) < 1 / 100000000000
+print "psi(1000.5) =", chebyshev_psi(1000 + 1 / 2)
+print "explicit formula, 200 zeros =", explicit_psi(1000 + 1 / 2, 200)

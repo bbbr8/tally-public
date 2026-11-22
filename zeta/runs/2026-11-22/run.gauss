@@ -1,0 +1,5 @@
+print "pi(1000000) =", prime_count(1000000), "li =", li(1000000)
+print "pi(10000000) =", prime_count(10000000), "li =", li(10000000)
+expect prime_count(1000000) == 78498
+expect prime_count(10000000) == 664579
+print "li - pi at 10000000 =", li(10000000) - prime_count(10000000)

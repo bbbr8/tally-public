@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Siegel — generation 6 branch of the Zeta vine, with Riemann–Siegel correction terms.
+"""Siegel — generation 6 dialect in the Zeta language family, with Riemann–Siegel correction terms.
 
     siegel run FILE [--json] · siegel check FILE · siegel selftest · siegel describe [--json] · siegel version
 """

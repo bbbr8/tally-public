@@ -1,0 +1,473 @@
+{
+ "reference_sha256": "aa14af59809c8254",
+ "rows": [
+  {
+   "language": "Tally",
+   "exit": 0,
+   "seconds": 0.68,
+   "program_sha256": "99b7e65b03c438ec",
+   "T1_values": [
+    -1,
+    1,
+    -6,
+    2,
+    5,
+    2,
+    0
+   ],
+   "T1_pass": true,
+   "T2_checked_n": [
+    5,
+    10,
+    20,
+    30
+   ],
+   "T2_pass": true,
+   "T3_zeros": [
+    14.137196,
+    21.024377,
+    25.018401,
+    30.427646,
+    32.932562,
+    37.586862,
+    40.918839,
+    43.32649,
+    48.00638,
+    49.772641
+   ],
+   "T3_zero_count": 10,
+   "T3_max_diff_vs_true_zeros": 0.007543,
+   "T3_max_diff_vs_python_same_formula": 4e-07,
+   "T3_pass": true
+  },
+  {
+   "language": "Zeta",
+   "exit": 0,
+   "seconds": 2.52,
+   "program_sha256": "97e81c431a6ffc4c",
+   "T1_values": [
+    -1,
+    1,
+    -6,
+    2,
+    5,
+    2,
+    0
+   ],
+   "T1_pass": true,
+   "T2_checked_n": [
+    5,
+    10,
+    20,
+    30
+   ],
+   "T2_pass": true,
+   "T3_zeros": [
+    14.137196,
+    21.024376,
+    25.018401,
+    30.427645,
+    32.932561,
+    37.586861,
+    40.918839,
+    43.32649,
+    48.00638,
+    49.77264
+   ],
+   "T3_zero_count": 10,
+   "T3_max_diff_vs_true_zeros": 0.007543,
+   "T3_max_diff_vs_python_same_formula": 8.9e-07,
+   "T3_pass": true
+  },
+  {
+   "language": "Euler",
+   "exit": 0,
+   "seconds": 2.49,
+   "program_sha256": "97e81c431a6ffc4c",
+   "T1_values": [
+    -1,
+    1,
+    -6,
+    2,
+    5,
+    2,
+    0
+   ],
+   "T1_pass": true,
+   "T2_checked_n": [
+    5,
+    10,
+    20,
+    30
+   ],
+   "T2_pass": true,
+   "T3_zeros": [
+    14.137196,
+    21.024376,
+    25.018401,
+    30.427645,
+    32.932561,
+    37.586861,
+    40.918839,
+    43.32649,
+    48.00638,
+    49.77264
+   ],
+   "T3_zero_count": 10,
+   "T3_max_diff_vs_true_zeros": 0.007543,
+   "T3_max_diff_vs_python_same_formula": 8.9e-07,
+   "T3_pass": true
+  },
+  {
+   "language": "Gauss",
+   "exit": 0,
+   "seconds": 2.59,
+   "program_sha256": "97e81c431a6ffc4c",
+   "T1_values": [
+    -1,
+    1,
+    -6,
+    2,
+    5,
+    2,
+    0
+   ],
+   "T1_pass": true,
+   "T2_checked_n": [
+    5,
+    10,
+    20,
+    30
+   ],
+   "T2_pass": true,
+   "T3_zeros": [
+    14.137196,
+    21.024376,
+    25.018401,
+    30.427645,
+    32.932561,
+    37.586861,
+    40.918839,
+    43.32649,
+    48.00638,
+    49.77264
+   ],
+   "T3_zero_count": 10,
+   "T3_max_diff_vs_true_zeros": 0.007543,
+   "T3_max_diff_vs_python_same_formula": 8.9e-07,
+   "T3_pass": true
+  },
+  {
+   "language": "Riemann",
+   "exit": 0,
+   "seconds": 2.63,
+   "program_sha256": "97e81c431a6ffc4c",
+   "T1_values": [
+    -1,
+    1,
+    -6,
+    2,
+    5,
+    2,
+    0
+   ],
+   "T1_pass": true,
+   "T2_checked_n": [
+    5,
+    10,
+    20,
+    30
+   ],
+   "T2_pass": true,
+   "T3_zeros": [
+    14.137196,
+    21.024376,
+    25.018401,
+    30.427645,
+    32.932561,
+    37.586861,
+    40.918839,
+    43.32649,
+    48.00638,
+    49.77264
+   ],
+   "T3_zero_count": 10,
+   "T3_max_diff_vs_true_zeros": 0.007543,
+   "T3_max_diff_vs_python_same_formula": 8.9e-07,
+   "T3_pass": true
+  },
+  {
+   "language": "Mertens",
+   "exit": 0,
+   "seconds": 2.57,
+   "program_sha256": "97e81c431a6ffc4c",
+   "T1_values": [
+    -1,
+    1,
+    -6,
+    2,
+    5,
+    2,
+    0
+   ],
+   "T1_pass": true,
+   "T2_checked_n": [
+    5,
+    10,
+    20,
+    30
+   ],
+   "T2_pass": true,
+   "T3_zeros": [
+    14.137196,
+    21.024376,
+    25.018401,
+    30.427645,
+    32.932561,
+    37.586861,
+    40.918839,
+    43.32649,
+    48.00638,
+    49.77264
+   ],
+   "T3_zero_count": 10,
+   "T3_max_diff_vs_true_zeros": 0.007543,
+   "T3_max_diff_vs_python_same_formula": 8.9e-07,
+   "T3_pass": true
+  },
+  {
+   "language": "Hardy",
+   "exit": 0,
+   "seconds": 2.53,
+   "program_sha256": "97e81c431a6ffc4c",
+   "T1_values": [
+    -1,
+    1,
+    -6,
+    2,
+    5,
+    2,
+    0
+   ],
+   "T1_pass": true,
+   "T2_checked_n": [
+    5,
+    10,
+    20,
+    30
+   ],
+   "T2_pass": true,
+   "T3_zeros": [
+    14.137196,
+    21.024376,
+    25.018401,
+    30.427645,
+    32.932561,
+    37.586861,
+    40.918839,
+    43.32649,
+    48.00638,
+    49.77264
+   ],
+   "T3_zero_count": 10,
+   "T3_max_diff_vs_true_zeros": 0.007543,
+   "T3_max_diff_vs_python_same_formula": 8.9e-07,
+   "T3_pass": true
+  },
+  {
+   "language": "Siegel",
+   "exit": 0,
+   "seconds": 2.5,
+   "program_sha256": "97e81c431a6ffc4c",
+   "T1_values": [
+    -1,
+    1,
+    -6,
+    2,
+    5,
+    2,
+    0
+   ],
+   "T1_pass": true,
+   "T2_checked_n": [
+    5,
+    10,
+    20,
+    30
+   ],
+   "T2_pass": true,
+   "T3_zeros": [
+    14.137196,
+    21.024376,
+    25.018401,
+    30.427645,
+    32.932561,
+    37.586861,
+    40.918839,
+    43.32649,
+    48.00638,
+    49.77264
+   ],
+   "T3_zero_count": 10,
+   "T3_max_diff_vs_true_zeros": 0.007543,
+   "T3_max_diff_vs_python_same_formula": 8.9e-07,
+   "T3_pass": true
+  },
+  {
+   "language": "Blindfold",
+   "exit": 0,
+   "seconds": 3.17,
+   "program_sha256": "97e81c431a6ffc4c",
+   "T1_values": [
+    -1,
+    1,
+    -6,
+    2,
+    5,
+    2,
+    0
+   ],
+   "T1_pass": true,
+   "T2_checked_n": [
+    5,
+    10,
+    20,
+    30
+   ],
+   "T2_pass": true,
+   "T3_zeros": [
+    14.137196,
+    21.024376,
+    25.018401,
+    30.427645,
+    32.932561,
+    37.586861,
+    40.918839,
+    43.32649,
+    48.00638,
+    49.77264
+   ],
+   "T3_zero_count": 10,
+   "T3_max_diff_vs_true_zeros": 0.007543,
+   "T3_max_diff_vs_python_same_formula": 8.9e-07,
+   "T3_pass": true
+  },
+  {
+   "language": "Spoor",
+   "exit": 0,
+   "seconds": 3.48,
+   "program_sha256": "53d609fcf22fe1d6",
+   "T1_values": [
+    -1,
+    1,
+    -6,
+    2,
+    5,
+    2,
+    0
+   ],
+   "T1_pass": true,
+   "T2_checked_n": [
+    5,
+    10,
+    20,
+    30
+   ],
+   "T2_pass": true,
+   "T3_zeros": [
+    14.137196,
+    21.024376,
+    25.018401,
+    30.427645,
+    32.932561,
+    37.586861,
+    40.918839,
+    43.32649,
+    48.00638,
+    49.77264
+   ],
+   "T3_zero_count": 10,
+   "T3_max_diff_vs_true_zeros": 0.007543,
+   "T3_max_diff_vs_python_same_formula": 8.9e-07,
+   "T3_pass": true
+  },
+  {
+   "language": "Loom (naive bisection)",
+   "exit": 0,
+   "seconds": 1.03,
+   "program_sha256": "e5f5a1e34af7b263",
+   "T1_values": [
+    -1,
+    1,
+    -6,
+    2,
+    5,
+    2,
+    0
+   ],
+   "T1_pass": true,
+   "T2_checked_n": [
+    5,
+    10,
+    20,
+    30
+   ],
+   "T2_pass": true,
+   "T3_zeros": [
+    14.13716127,
+    21.02435304,
+    25.01837923,
+    30.42762758,
+    32.93254091,
+    37.58685304,
+    40.91882326,
+    43.32647707,
+    48.00636293,
+    49.77262117
+   ],
+   "T3_zero_count": 10,
+   "T3_max_diff_vs_true_zeros": 0.007522,
+   "T3_max_diff_vs_python_same_formula": 3.5e-05,
+   "T3_pass": true
+  },
+  {
+   "language": "Loom (sign-safe bisection)",
+   "exit": 0,
+   "seconds": 1.04,
+   "program_sha256": "11b4a3336a2c0006",
+   "T1_values": [
+    -1,
+    1,
+    -6,
+    2,
+    5,
+    2,
+    0
+   ],
+   "T1_pass": true,
+   "T2_checked_n": [
+    5,
+    10,
+    20,
+    30
+   ],
+   "T2_pass": true,
+   "T3_zeros": [
+    14.13719611,
+    21.02437671,
+    25.0184014,
+    30.42764585,
+    32.93256177,
+    37.58686189,
+    40.91883914,
+    43.32649021,
+    48.00638033,
+    49.77264063
+   ],
+   "T3_zero_count": 10,
+   "T3_max_diff_vs_true_zeros": 0.007544,
+   "T3_max_diff_vs_python_same_formula": 4.7e-09,
+   "T3_pass": true
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+let z = zeta_zeros(5)
+print "first five zeros:", z
+print "error on zero 1:", z[0] - 14.134725141734
+print "error on zero 2:", z[1] - 21.022039638771
+print "error on zero 3:", z[2] - 25.010857580145
+print "error on zero 4:", z[3] - 30.424876125859
+print "error on zero 5:", z[4] - 32.935061587739
+expect abs(z[0] - 14.134725141734) < 1 / 100000
+expect abs(z[1] - 21.022039638771) < 1 / 100000
+expect abs(z[2] - 25.010857580145) < 1 / 100000
+print "psi(1000.5) =", chebyshev_psi(1000 + 1 / 2)
+print "explicit formula, 200 zeros =", explicit_psi(1000 + 1 / 2, 200)
+print "difference =", explicit_psi(1000 + 1 / 2, 200) - chebyshev_psi(1000 + 1 / 2)
