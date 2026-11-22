@@ -78,7 +78,7 @@ def evaluate_candidates(packet):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('packet',type=Path);a=p.parse_args()
-    try:result=evaluate_candidates(json.loads(a.packet.read_text()))
+    try:result=evaluate_candidates(json.loads(a.packet.read_text(encoding="utf-8-sig")))
     except (ValueError,KeyError,TypeError,OSError) as exc:p.exit(2,str(exc)+'\n')
     print(json.dumps(result,indent=2));return 0 if result['accepted'] else 1
 
