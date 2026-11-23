@@ -1,0 +1,10 @@
+name = "LangStress"
+defaultTargets = ["LangStress", "oracle"]
+
+[[lean_lib]]
+name = "LangStress"
+precompileModules = true
+
+[[lean_exe]]
+name = "oracle"
+root = "Main"

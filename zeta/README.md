@@ -32,6 +32,8 @@ python -m unittest discover
 
 Each launcher supports `selftest` and `describe --json`. Exact results use fractions. Numerical results are approximations, and precision varies by function and input. The `expect` statements check specific known answers and tolerances.
 
+All seven languages accept UTF-8 source files with or without a byte-order mark for `check` and `run`.
+
 The examples use synthetic records or mathematical inputs. Each dialect’s `describe` output lists its historical parent languages and its runnable bridges to the parents included here. The original fleet edition provides additional integrations.
 
 ## Riemann answer key and Lean results
@@ -51,3 +53,7 @@ The same collection includes Euler’s finite prime product, Gauss’s prime cou
 ## Lean project for the finite logic lab
 
 The formal project contains the sources behind the 34 named theorem results in the lab archive, including the four-variable formula-size table, exact parity bounds, and sum-check soundness. The results identify which theorems rely on compiled finite checks. With Lean 4.36.0 installed, run `lake build` from the formal project directory. [Lean project](proofs/formal) · [Theorem and checker results](proofs/Lean-lab-results.json)
+
+## Lean checks for four companion languages
+
+The language stress checker compares generated answers from CaseLog, Warrant, Spectra, and Concord with Lean reference calculations. The archived post-fix runs recorded zero disagreements in 12,000 cases per language. The public sample contains one synthetic case from each language. [Checker, sample, and run instructions](proofs/language-checks)

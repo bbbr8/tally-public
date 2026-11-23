@@ -1689,7 +1689,7 @@ def selftest():
     ex_dir = os.path.join(here, "examples")
     exs = sorted(f for f in os.listdir(ex_dir) if f.endswith(".zeta")) if os.path.isdir(ex_dir) else []
     for f in exs:
-        with open(os.path.join(ex_dir, f), encoding="utf-8") as fh:
+        with open(os.path.join(ex_dir, f), encoding="utf-8-sig") as fh:
             lines, e, _ = run_capture(fh.read())
         good = e is None
         ok += good
@@ -1703,7 +1703,7 @@ def selftest():
 # ------------------------------------------------------------------ CLI
 def run_program(path, as_json, dialect=None):
     import io
-    with open(path, encoding="utf-8") as fh:
+    with open(path, encoding="utf-8-sig") as fh:
         src = fh.read()
     try:
         it = Interp(out=io.StringIO() if as_json else sys.stdout, dialect=dialect)
@@ -1749,8 +1749,18 @@ def dialect_main(dialect_path, argv):
         print(json.dumps(out, indent=None if "--json" in rest else 1))
         return 0
     if cmd == "check":
-        with open(rest[0], encoding="utf-8") as fh:
-            parse(fh.read())
+        if not rest:
+            print(f"usage: {d['lower']} check FILE", file=sys.stderr)
+            return 2
+        try:
+            with open(rest[0], encoding="utf-8-sig") as fh:
+                parse(fh.read())
+        except AtoneError as e:
+            if "--json" in rest:
+                print(json.dumps({"ok": False, "error": e.as_dict()}))
+            else:
+                print(str(e), file=sys.stderr)
+            return 1
         print(f"{rest[0]}: parses")
         return 0
     if cmd == "run":
@@ -1776,7 +1786,7 @@ def dialect_main(dialect_path, argv):
             total += 1
             buf = io.StringIO()
             try:
-                with open(os.path.join(ex_dir, f), encoding="utf-8") as fh:
+                with open(os.path.join(ex_dir, f), encoding="utf-8-sig") as fh:
                     Interp(out=buf, dialect=d).run(fh.read())
                 ok += 1
             except AtoneError as e:
@@ -1806,7 +1816,7 @@ def main(argv):
             print(f"usage: zeta {cmd} FILE", file=sys.stderr)
             return 2
         path = rest[0]
-        with open(path, encoding="utf-8") as fh:
+        with open(path, encoding="utf-8-sig") as fh:
             src = fh.read()
         as_json = "--json" in rest
         try:

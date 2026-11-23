@@ -1,3 +1,4 @@
 __pycache__/
 *.py[cod]
 proofs/formal/.lake/
+proofs/language-checks/.lake/
