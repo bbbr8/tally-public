@@ -2,3 +2,4 @@ __pycache__/
 *.py[cod]
 proofs/formal/.lake/
 proofs/language-checks/.lake/
+proofs/language-checks/cert/
