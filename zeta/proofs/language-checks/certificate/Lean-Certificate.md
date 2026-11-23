@@ -148,26 +148,26 @@ scripts that call the real runtimes; their fingerprints follow, so a later build
 | warrant_before_A.txt | 2,000 | `c6205706f0c9010c043bba866bb8509e11fe28f44de3764aaa3a3a05aeda6ef2` |
 | warrant_after_A.txt | 2,000 | `23d4e877a51cf05256492fa894aca13c48dbf06aa78d1dc9c28698c44b4b0ca4` |
 | caselog_before_A.txt | 2,000 | `71937d3d8510d44e48f598b218775bb72218b6ee3cc6078cd929e8431f9eb150` |
-| caselog_after_A.txt | 2,000 | `0167d7573a2f32a1baa6ccfd3957f6a8fbf2d263749a8786da74b4fef71612b5` |
+| caselog_after_A.txt | 2,000 | `e0ef23977e8a37e3a2cf26a0d153b189d90497a18dc311e984980f24fc43a387` |
 | spectra_before_A.txt | 2,000 | `5e6d7a574630bd2cb2048074f6cde4a7841f867bf58fb6372dc1245014c94014` |
 | spectra_after_A.txt | 2,000 | `856603bed22ce0aea2f06f3ff0d8b35a93e1257c8e5012e4e66f8d860746b8de` |
 | concord_after_A.txt | 2,000 | `d7fbcee1da0c5b2f2a809c6f99c6bb84e1c45beaa3521bee83a5c9d744386edb` |
 | warrant_before_B.txt | 10,000 | `20e5cc9cc98cedd61c8b5e8261ebad604ca2930adf70681eb44d7a723bff5c4b` |
 | warrant_after_B.txt | 10,000 | `dc5025296fd988562b389fae58fc6f781742cce760c0ac183131d9ca7b605f55` |
 | caselog_before_B.txt | 10,000 | `70dfa35951d6a7bb9b6f75ba31b9134062eab1755e64f983141a19147b7ecd86` |
-| caselog_after_B.txt | 10,000 | `0352ad6365b67744e5097bc744e3dc0d1f7919d955d96a2313455b72253e7031` |
+| caselog_after_B.txt | 10,000 | `bc90e18daecf69bbd9e037e9829e9050ae30caa0cbe0182f2c32da7d3e093b0c` |
 | spectra_before_B.txt | 10,000 | `dae9caf2aba8e2ed75519004197df64c0c69c06ac6d4a21456eb05cb15df3fec` |
 | spectra_after_B.txt | 10,000 | `b8e90bd79583446a5642829ba88754cb5a608d4b8504f200b5588f76c6741e1c` |
 | concord_after_B.txt | 10,000 | `ef1e7c589fdc440800f86f609cf7c113c935fed7f66e1ac163d855128cdd790a` |
 | warrant_before_C.txt | 10,000 | `ab2f9e584d1355a7ecebe75da8e9ca44cc5a5bd30b96f7cc62da6377d00b3942` |
 | warrant_after_C.txt | 10,000 | `bb9bef35558a4be8c90ccd99bcbe8739ad3d538a15f5294bf1324d1fe42afb8e` |
 | caselog_before_C.txt | 10,000 | `7277532d9cd807a91b4bb5e37e8ec888312e094c7f475e9a29d8e7716b5a37a3` |
-| caselog_after_C.txt | 10,000 | `ece43a624921549ccb5b951815c1c7e3a5147c72afabd0d5f616a9d6b8b95f91` |
+| caselog_after_C.txt | 10,000 | `240763c8aff380b40aba9c7d41a603442c6134c0327affd52d85a8847c87b82f` |
 | spectra_before_C.txt | 10,000 | `0c93c63e36f1e6374cd90a912683b15bcc502649a84a71be0d2e7181003f35c3` |
 | spectra_after_C.txt | 10,000 | `08f9725c6ce2b95791d6b05860057a5bd047de6babb010a270ab706a2df26a78` |
 | concord_after_C.txt | 10,000 | `ca718d5225756915d14758efeffd862c1f4c9c0c9b5393270691ec93ea734f47` |
 | warrant_after_D.txt | 10,000 | `eba1e0e02b69be2121829d3c17417bed3ee356755e4eaaf02cc7d06bee77694f` |
-| caselog_after_D.txt | 10,000 | `576e025ccf1ce6b8785cdde8b308e838a806238d5dbd299233e931080580b495` |
+| caselog_after_D.txt | 10,000 | `c1d12a25a98adb3dec51be87151ee89688dc2dc0fc773fb262a6fcaff7bc3c18` |
 | spectra_after_D.txt | 10,000 | `75beacf898e2e79646259cdbfb371286e7573560d44ffa951070f9c8b73c2f47` |
 | concord_after_D.txt | 10,000 | `da0d3ea513975e1d0c7c4918c9f1f924779005202e4abc1c012aa93806d2714a` |
 | negative_controls.txt | 200 | `643c758735a24bb970362aa7e756c45a0a5a381417f4d8df18fb3b759f1e4768` |
@@ -189,9 +189,38 @@ scripts that call the real runtimes; their fingerprints follow, so a later build
 
 | Runtime | SHA-256 |
 |---|---|
-| CaseLog | `c7ee3f989d09e7b3485f63a950f976a366dcf1281824907e151b8e4dc7c2bb6a` |
+| CaseLog | `1a21fa67275696e2fab7f9821798441e464474553fa61ed1fdbb1f4c0056fae7` |
 | Warrant | `a6e7413632a24a2e288a1909273e82e970f40ce64c39662ed79f93be599a7401` |
 | Spectra | `9e8ac5b58cf84ab4d090919acab09561f131a05764ab439e42c81a8c22bf9d84` |
+
+## Full re-check from a clean build
+
+Everything above was run again from nothing: runtimes' own tests, output stability across Python hash seeds, every campaign regenerated from the
+runtimes, all proofs rebuilt from an empty build folder, the independent kernel replay, a wrong sum, and a block of programs no earlier run used.
+
+| Step | Result |
+|---|---|
+| 1 CaseLog self-test | selftest PASS (6/6) |
+| 1 Warrant self-test | selftest 23/23 |
+| 1 Spectra self-test | selftest PASS (89/89) |
+| 1 Concord self-test | selftest 17/17 |
+| 2 warrant: two hash seeds, 2,000 programs | byte-identical |
+| 2 caselog: two hash seeds, 2,000 programs | byte-identical |
+| 2 spectra: two hash seeds, 2,000 programs | byte-identical |
+| 2 concord: two hash seeds, 2,000 programs | byte-identical |
+| 3 campaigns regenerated | 25 result files |
+| 3 negative controls (oracle program) | NEGATIVE CONTROLS PASS: every corrupted line was flagged |
+| 3 arithmetic regenerated | items 53 lean theorems 52 |
+| 4 Lean clean build | exit 0, errors 0, 41 axiom reports |
+| 5 independent kernel replay (leanchecker) | exit 0 |
+| 6 wrong sum | rejected |
+| 7 warrant: fresh block E (seeds from 400,000) | SUMMARY cases=10000 disagreeing_cases=0 |
+| 7 caselog: fresh block E (seeds from 400,000) | SUMMARY cases=10000 disagreeing_cases=0 |
+| 7 spectra: fresh block E (seeds from 400,000) | SUMMARY cases=10000 disagreeing_cases=0 |
+| 7 concord: fresh block E (seeds from 400,000) | SUMMARY cases=10000 disagreeing_cases=0 |
+
+Verdict: **PASS**. The first re-check found that CaseLog listed a proof's inputs in an order that varied between runs when two proofs tied exactly (tier, families, anchors and answers were unaffected). The tie is now broken by the content of the inputs; the re-check above is on that version.
+
 
 ## Re-checking
 

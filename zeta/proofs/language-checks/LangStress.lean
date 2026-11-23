@@ -3,3 +3,5 @@ import LangStress.Warrant
 import LangStress.CaseLog
 import LangStress.Concord
 import LangStress.Spectra
+import LangStress.WarrantClosure
+import LangStress.SpectraHoldings

@@ -59,3 +59,5 @@ The formal project contains the sources behind the 34 named theorem results in t
 The language stress checker compares generated answers from CaseLog, Warrant, Spectra, and Concord with Lean reference calculations. The archived post-fix runs recorded zero disagreements in 12,000 cases per language. The public sample contains one synthetic case from each language. [Checker, sample, and run instructions](proofs/language-checks)
 
 The full Lean certificate expands coverage to 32,000 post-fix cases per language and records the pre-fix discrepancies. It includes the proof sources, 26 fingerprinted inputs, and the steps for rebuilding the proofs. [Lean Certificate PDF](proofs/language-checks/certificate/Lean-Certificate.pdf) · [Reproduction instructions](proofs/language-checks#issued-lean-certificate)
+
+Two additional Lean certificates prove that adding premises preserves Warrant derivability and that Spectra’s owner and other holdings partition the traceable balances while preserving the overdraft separately. [Supplemental proofs and replay commands](proofs/language-checks#supplemental-certificates-for-warrant-and-spectra)
