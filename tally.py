@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Private - personal, financial, and mental-health data
 """Tally — a general-purpose programming language with exact money, dates and source tracking.
 
     tally FILE.tly            run a program
@@ -3316,7 +3317,7 @@ def file_sha(path):
 
 def interpreter_pin():
     here = os.path.dirname(os.path.abspath(__file__))
-    files = ["tally.py", "tally_logic.py", "tally_data.py", "tally_docs.py", "tally_experiments.py", "tally_math.py", "tally_reason.py", "tally_audit.py", "tally_qubit.py", "tally_quantum.py", "tally_qtime.py", "tally_qsense.py", "tally_reconcile.py", "tally_native.py", "tally_accounting.py", "tally_qsearch.py", "tally_exchange.py", "tally_documents.py", "tally_obligations.py", "tally_qledger.py", "tally_applications.py", "tally_terms.py"]
+    files = ["tally.py", "matrix_math.py", "tally_logic.py", "tally_data.py", "tally_docs.py", "tally_experiments.py", "tally_math.py", "tally_reason.py", "tally_audit.py", "tally_qubit.py", "tally_quantum.py", "tally_qtime.py", "tally_qsense.py", "tally_reconcile.py", "tally_native.py", "tally_accounting.py", "tally_qsearch.py", "tally_exchange.py", "tally_documents.py", "tally_obligations.py", "tally_qledger.py", "tally_applications.py", "tally_terms.py"]
 
     return {"version": VERSION, "sha256": {f: file_sha(os.path.join(here, f)) for f in files
                                           if os.path.exists(os.path.join(here, f))}}

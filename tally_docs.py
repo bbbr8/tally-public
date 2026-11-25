@@ -1,3 +1,4 @@
+# Private - personal, financial, and mental-health data
 """The Tally reference: one entry per built-in — group, one-line doc, a worked example and its exact result.
 
 Every example is executed by `tally --selftest` (and by `tally describe --verify`): the lines before the last are run,
@@ -356,6 +357,8 @@ DOCS = {
     "libr": ("forensic math", "lowest intermediate balance: the most of a class that can remain after each day",
              'map(libr([{day: @2030-01-01, amount: $100.00, page: "a", cls: "o"}, {day: @2030-01-02, amount: -$80.00, page: "b", cls: ""}], "o"), fn(r) => r.class_left)',
              '[$100.00, $20.00]'),
+    "matmul": ("numbers & money", "multiply rectangular numeric or complex matrices in row order",
+               "matmul([[1,2],[3,4]],[[5],[6]])", "[[17], [39]]"),
     "subset_sums": ("forensic math", "every set of at most max_items amounts adding exactly to a target (by position)",
                     'map(subset_sums([$10.00, $20.00, $30.00, $40.00], $50.00, 3), fn(s) => s.positions)', '[[0, 3], [1, 2]]'),
     "window_sums": ("forensic math", "every run of consecutive items adding exactly to a target",

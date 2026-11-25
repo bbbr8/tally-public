@@ -1,18 +1,18 @@
 {
   "version": "0.28-portable",
   "files": {
-    "tally.py": "0feee2ce8166ba2d788d752bac835af2fd758b6d103b5d86eac1492cb3e9b2f8",
+    "tally.py": "f271c7ae75666344ca57b8cfa1aed77425dbcb7bd5739e95fc29ba130b0ad063",
     "tally_accounting.py": "98d298ffa68137987259c676d7af270f21a21c30fdd09c8e1340c73c06b5f487",
     "tally_applications.py": "cc7b96125590eead019c5b9e1b045b931f6e014af16211efffff299ef5d74ffe",
     "tally_audit.py": "e5b0eb8063015b1d2c4ebb01e48dd5c04beb3e6e7c37f19c1a436861923ad8b6",
     "tally_client.py": "d7c64956c24549fa16cfd718e9af9b178208b18c2b33eb59c32fb44bb2daeb59",
     "tally_data.py": "9bdb16ffe5369db22f76b3b1b7811cbb358c007668f525a41e2b51811687768a",
-    "tally_docs.py": "bc90f276504f615719307e2f52d797b89b776a2203431b996b0aec59f082774b",
+    "tally_docs.py": "49b5d92d33978fb744e63c132cebfbf47cabe388945e272c1a4d2fdf50036874",
     "tally_documents.py": "29367ae6a87b30dd4a682ee77e177709663b3087cbce935d0a7ce250ca1365ec",
     "tally_exchange.py": "71211b96a6808a215b7dc27f12008ffab4fbc7bb7ae8fba0b94e4a6013df46a2",
     "tally_experiments.py": "f851b9ebe384b021f9e5371776034d076b32caaa67e1cfcd5acbe4623b9f7197",
     "tally_logic.py": "72c1d1acbb24d66a6978fb44db3bd76ae1f0f20e42f593e27c85f744c89ff71a",
-    "tally_math.py": "7c5cca835747f4c20b76864c9c1d3efc9fc13ea0fd4109f20f25d8856ede5be8",
+    "tally_math.py": "3b2173d14ba438e0f1f1b6563c9caf3f8ea6ec86fc6d92a1ed0a6e6fb57b1d53",
     "tally_native.py": "f09ed14707a939033ea87d44b981d4fb02a91c7a78b0938a650b30283bef173e",
     "tally_obligations.py": "49bdeab5ec915faf21742c0a89b10be90da84d61823800135bc8aa41f6d9b5fe",
     "tally_qledger.py": "50effc47dc60208387fef627d8e7001e457d4a7f859ed7b8a9affcb8b898b96d",
@@ -32,7 +32,14 @@
     "PUBLIC_DISTRIBUTION.md": "aef28d00ac5121e17bd6e5f278f8ada0cf02fbc24d32a8def9e18ab775798764",
     "test_public_distribution.py": "dac81fbf6d9e962935f4418b7ffee9bc73ea5205651240e2015e1daf0690cdef",
     ".gitignore": "49cf275655ef29cd24d7a5fa09ea7ae4eaf3e12528856fe298fabcce35d391cc",
-    "test_packet_encoding.py": "2cada8c3b6393204ef7888ebce8836a35d24fc717932b25a81f3ebde466cf2f3"
+    "test_packet_encoding.py": "2cada8c3b6393204ef7888ebce8836a35d24fc717932b25a81f3ebde466cf2f3",
+    "matrix_math.py": "c746812ed83480e9d3c6750f41b26871c983ecdd68b22d01097dc9465f791f85",
+    "test_matrix.py": "73eecfc75ace447bb9712e1870933ff370018647e99cae6d49862ef8c3f165fb",
+    "zeta/zeta/matrix_math.py": "c746812ed83480e9d3c6750f41b26871c983ecdd68b22d01097dc9465f791f85",
+    "zeta/README.md": "0a84621f594b6350f71b6d9be855a052da75239f4b7f07cd56d3d7ec40bc154d",
+    "zeta/test_family.py": "152d4c534aee02d65e28390e4f96ed433bfdc9597bbeae0ed4052cc3b4ba723e",
+    "zeta/zeta/zeta.py": "6850d7b567ce1374b3110cd0d50d5a0fb95029cf6403f469b7d56d956896826e",
+    "README.md": "29b198d2d448815b05227b2b533e0bfb0373d0299688cbb22e5a85a5899d961a"
   },
   "public_profile": "local-only; no network service or provider adapter"
 }

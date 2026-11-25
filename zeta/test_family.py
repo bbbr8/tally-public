@@ -1,3 +1,4 @@
+# Private - personal, financial, and mental-health data
 import json
 from pathlib import Path
 import subprocess
@@ -19,6 +20,26 @@ def run_cli(name, *args, cwd=ROOT):
 
 
 class FamilyTests(unittest.TestCase):
+    def test_matrix_products_in_every_dialect(self):
+        with tempfile.TemporaryDirectory() as directory:
+            for name in LANGUAGES:
+                with self.subTest(name=name):
+                    source = Path(directory) / f'matrix.{name}'
+                    source.write_text(
+                        'expect matmul([[1,2],[3,4]],[[5],[6]]) == [[17],[39]]\n'
+                        'expect matmul([[1/3]],[[3]]) == [[1]]\n'
+                        'let i = {"real":0,"imag":1}\n'
+                        'expect matmul([[i]],[[i]])[0][0].real == 0-1\n'
+                        'expect matmul([[],[]],[]) == [[],[]]\n'
+                        'fact matrix = [[2]] by "SYN_A", "TEST_B"\n'
+                        'expect established(matmul(matrix,[[3]])[0][0])\n', encoding='utf-8')
+                    run = run_cli(name, 'run', source, '--json')
+                    self.assertEqual(run.returncode, 0, run.stderr + run.stdout)
+                    self.assertEqual(json.loads(run.stdout)['expects'], [5, 5])
+                    source.write_text('print matmul([[1]],[[1],[2]])\n', encoding='utf-8')
+                    run = run_cli(name, 'run', source, '--json')
+                    self.assertNotEqual(run.returncode, 0)
+
     def test_source_with_utf8_signature(self):
         with tempfile.TemporaryDirectory() as directory:
             for name in LANGUAGES:

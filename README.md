@@ -64,3 +64,7 @@ Candidate `max_steps` now covers setup plus the expression together, with fresh 
 
 Run the CLI or Python modules locally. No HTTP endpoint, hosting setup or provider
 account is required. [Public distribution policy](PUBLIC_DISTRIBUTION.md).
+
+## Matrix multiplication
+
+`matmul([[1,2],[3,4]],[[5],[6]])` returns `[[17],[39]]`. Inputs are rectangular row lists. Scalar entries are numbers or maps with numeric `real` and `imag` fields. An explicit complex entry selects complex results. Each numeric component retains the sources used to compute it. Empty outer lists represent 0-by-0 matrices.

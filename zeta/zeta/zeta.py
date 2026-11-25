@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Private - personal, financial, and mental-health data
 """Zeta — the base language of the Zeta language family. Its rules are taken from the teachings of Jesus Christ.
 
 A general-purpose language (functions, closures, if/while/for, lists, maps, exact numbers, exact money, dates)
@@ -1209,6 +1210,26 @@ def install_builtins(it):
     def err(code, msg, hint=""):
         return AtoneError(code, msg, it.line, 0, hint)
 
+    @B("matmul", 2)
+    def _matmul(left, right):
+        from matrix_math import matmul
+
+        def number(value):
+            if not isinstance(un(value), Fraction):
+                raise ValueError("matrix components must be numbers")
+            return value
+
+        def inherit(parent, value):
+            if isinstance(parent, Rich) and parent.carries_proof():
+                return it.lift(lambda _, element: element, parent, value)
+            return value
+
+        try:
+            return matmul(left, right, scalar=number, zero=Fraction(0), unwrap=un,
+                          child=inherit, arithmetic=it.binop)
+        except ValueError as exc:
+            raise err("A-E004", f"matmul: {exc}") from exc
+
     @B("len", 1)
     def _len(x):
         x = un(x)
@@ -1591,7 +1612,7 @@ DESCRIBE = {
     },
     "operators": {"x called \"label\"": "what it is called", "a meaning b": "parable: surface a, depth b",
                   "+ - * / %": "exact; money stays money", "== != < > <= >=": "", "and or not": ""},
-    "builtins": ["len", "str", "num", "money", "date", "contains", "upper", "lower", "abs", "sum", "keys", "has",
+    "builtins": ["matmul", "len", "str", "num", "money", "date", "contains", "upper", "lower", "abs", "sum", "keys", "has",
                  "push", "range", "round", "value", "witnesses", "witness", "established", "family", "label",
                  "surface", "depth", "know", "outstanding", "paid", "borne", "forgiven", "bearers", "borne_by",
                  "debts", "confessions", "history", "seek",

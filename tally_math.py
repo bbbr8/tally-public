@@ -1,3 +1,4 @@
+# Private - personal, financial, and mental-health data
 """Tally's forensic math built-ins — exact cents throughout; every result carries the sources of what it used.
 
     share_bounds(events, day, amount, cls)   floor and ceiling of one class's share of an outflow that hold under
@@ -32,6 +33,51 @@ def install(it):
             g[name] = T.Builtin(name, f, arity)
             return f
         return deco
+
+    @bi("matmul", 2)
+    def _matmul(it_, node, left, right):
+        """Multiply rectangular matrices of numbers or {real,imag} values."""
+        from fractions import Fraction
+        from matrix_math import matmul
+        from operator import add, mul, sub
+        operations = {"+": add, "-": sub, "*": mul}
+
+        def inherit(parent, value):
+            return T.wrap(value, T.srcs(parent))
+
+        def number(value):
+            raw = T.strip(value)
+            if not isinstance(raw, Decimal) or not raw.is_finite():
+                raise ValueError("matrix components must be finite numbers")
+            return T.wrap(Fraction(raw), T.srcs(value))
+
+        def arithmetic(op, a, b):
+            value = operations[op](T.strip(a), T.strip(b))
+            return T.wrap(value, T.srcs(a, b))
+
+        def decimal_entry(value):
+            if isinstance(value, dict):
+                return {key: decimal_entry(part) for key, part in value.items()}
+            f = T.strip(value)
+            # Finite-decimal inputs keep only factors 2 and 5 in the denominator.
+            denominator = f.denominator
+            twos = (denominator & -denominator).bit_length() - 1
+            denominator >>= twos
+            fives = 0
+            while denominator > 1:
+                denominator //= 5
+                fives += 1
+            scale = max(twos, fives)
+            coefficient = f.numerator * 2**(scale-twos) * 5**(scale-fives)
+            sign, digits, _ = Decimal(coefficient).as_tuple()
+            return T.wrap(Decimal((sign, digits, -scale)), T.srcs(value))
+
+        try:
+            rows = matmul(left, right, scalar=number, zero=Fraction(0), unwrap=T.strip,
+                          child=inherit, arithmetic=arithmetic, tick=lambda: it_.tick(node))
+        except ValueError as exc:
+            raise it_.err(f"matmul: {exc}", node) from exc
+        return [[decimal_entry(value) for value in row] for row in rows]
 
     def as_list(x, node):
         x = T.strip(x)

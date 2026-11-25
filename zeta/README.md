@@ -61,3 +61,7 @@ The language stress checker compares generated answers from CaseLog, Warrant, Sp
 The full Lean certificate expands coverage to 32,000 post-fix cases per language and records the pre-fix discrepancies. It includes the proof sources, 26 fingerprinted inputs, and the steps for rebuilding the proofs. [Lean Certificate PDF](proofs/language-checks/certificate/Lean-Certificate.pdf) · [Reproduction instructions](proofs/language-checks#issued-lean-certificate)
 
 Two additional Lean certificates prove that adding premises preserves Warrant derivability and that Spectra’s owner and other holdings partition the traceable balances while preserving the overdraft separately. [Supplemental proofs and replay commands](proofs/language-checks#supplemental-certificates-for-warrant-and-spectra)
+
+## Matrix multiplication
+
+`matmul([[1,2],[3,4]],[[5],[6]])` returns `[[17],[39]]`. Inputs are rectangular row lists. Scalar entries are numbers or maps with numeric `real` and `imag` fields. An explicit complex entry selects complex results. Arithmetic carries the witness basis of its inputs. Empty outer lists represent 0-by-0 matrices.
