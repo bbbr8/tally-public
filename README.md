@@ -68,3 +68,7 @@ account is required. [Public distribution policy](PUBLIC_DISTRIBUTION.md).
 ## Zeta language family
 
 Zeta, formerly Atone, and its six companion languages are published on the `zeta-family` branch. Each has a runnable mathematical example. The branch also includes Bryce’s Riemann Answer Key, the numerical scoreboard, and the source and results for the finite Lean proofs. [Browse Zeta and the proof materials](https://github.com/bbbr8/tally-public/tree/zeta-family/zeta).
+
+## Matrix multiplication
+
+`matmul([[1,2],[3,4]],[[5],[6]])` returns `[[17],[39]]`. Inputs are rectangular row lists. Scalar entries are numbers or maps with numeric `real` and `imag` fields. An explicit complex entry selects complex results. Each numeric component retains the sources used to compute it. Empty outer lists represent 0-by-0 matrices.
